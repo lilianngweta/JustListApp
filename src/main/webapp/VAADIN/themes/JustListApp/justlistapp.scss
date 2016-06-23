@@ -1,0 +1,15 @@
+@import "../valo/valo.scss";
+
+@mixin justlistapp {
+	@include valo;
+
+
+		.backColorWhite{
+			background-color:white;
+		}
+
+
+
+
+	/* Add your theme selectors here */
+}
