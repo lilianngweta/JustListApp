@@ -10,3 +10,7 @@ mockapp-server/src/main/webapp/VAADIN/themes/mockapp/styles.css
 */.classpath
 .project
 */.project
+/.gradle
+.git/
+out/
+build/

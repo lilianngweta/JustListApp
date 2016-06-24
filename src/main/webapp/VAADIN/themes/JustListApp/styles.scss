@@ -2,7 +2,7 @@
 @import "justlistapp.scss";
 
 /* This file prefixes all rules with the theme name to avoid causing conflicts with other themes. */
-/* The actual styles should be defined in justlistapp.scss */
+/* The actual styles should be defined in justlist.scss */
 .JustListApp {
   @include addons;
   @include justlistapp;
