@@ -15,8 +15,7 @@ import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 //import com.vaadin.ui.VerticalLayout;
-import com.vaadin.ui.themes.ValoTheme;
-import sun.jvm.hotspot.debugger.cdbg.AccessControl;
+//import com.vaadin.ui.themes.ValoTheme;
 import com.vaadin.ui.LoginForm.LoginListener;
 
 /**
@@ -35,7 +34,7 @@ public class LogIn extends CssLayout {
     public Button login;
     public Button forgotPassword;
     public LoginListener loginListener;
-    public AccessControl accessControl;
+    //public AccessControl accessControl;
 
 
 
@@ -44,12 +43,12 @@ public class LogIn extends CssLayout {
         FormLayout loginForm = new FormLayout();
 
         loginForm.setSizeUndefined();
-        loginForm.setMargin(false);
+        loginForm.setMargin(true);
 
         loginForm.addComponent(username = new TextField("Username"));
-        username.setWidth("100px");
+        username.setWidth("400px");
         loginForm.addComponent(password = new PasswordField("Password"));
-        password.setWidth("100px");
+        password.setWidth("400px");
         //password.setDescription("Write anything");
         CssLayout buttons = new CssLayout();
         // buttons.setStyleName("buttons");

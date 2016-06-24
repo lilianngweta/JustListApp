@@ -73,6 +73,18 @@ public class JustListAppUI extends UI {
 
         account.setMargin(true);
 
+		HorizontalLayout lowerLoyout = new HorizontalLayout();
+       // lowerLoyout.setWidth("100%");
+        lowerLoyout.setSizeFull();
+        main.addComponent(lowerLoyout);
+        //lowerLoyout.addStyleName("backColorBrown");
+
+        VerticalLayout loginRegisterArea = new VerticalLayout();
+        loginRegisterArea.setWidth("800px");
+        loginRegisterArea.setHeight("800px");
+        lowerLoyout.addComponent(loginRegisterArea);
+        lowerLoyout.setComponentAlignment(loginRegisterArea,Alignment.TOP_RIGHT);
+        loginRegisterArea.addStyleName("backColorBrown");
 
 
 
@@ -90,9 +102,9 @@ public class JustListAppUI extends UI {
             // sizes
             //VerticalLayout centeringLayout = new VerticalLayout();
 
-            main.addComponent(loginForm);
-            main.setComponentAlignment(loginForm,
-                    Alignment.MIDDLE_CENTER);
+            loginRegisterArea.addComponent(loginForm);
+            loginRegisterArea.setComponentAlignment(loginForm,
+                    Alignment.TOP_RIGHT);
 
 
           //  addComponent(centeringLayout);
@@ -104,6 +116,13 @@ public class JustListAppUI extends UI {
 
 		signUp.addClickListener(e -> {
 
+            Register signup = new Register();
+
+            Component registerForm = signup.buildRegisterForm();
+
+            loginRegisterArea.addComponent(registerForm);
+            loginRegisterArea.setComponentAlignment(registerForm,
+                    Alignment.TOP_RIGHT);
 
 
 		});

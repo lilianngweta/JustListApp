@@ -1,0 +1,1338 @@
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 23, 2016 5:50:48 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 23, 2016 5:50:49 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 23, 2016 5:50:49 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 23, 2016 5:50:51 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 23, 2016 5:50:51 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 23, 2016 5:50:51 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 23, 2016 5:50:51 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 23, 2016 5:50:51 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 23, 2016 5:50:52 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (3,372ms), startup services(2,342ms), total(5,714ms)
+[ERROR] Jun 23, 2016 5:50:52 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] SEVERE: Shutting down server due to startup exception
+[ERROR] java.net.BindException: Address already in use
+[ERROR] at sun.nio.ch.Net.bind0(Native Method)
+[ERROR] at sun.nio.ch.Net.bind(Net.java:433)
+[ERROR] at sun.nio.ch.Net.bind(Net.java:425)
+[ERROR] at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+[ERROR] at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+[ERROR] at org.glassfish.grizzly.nio.transport.TCPNIOBindingHandler.bindToChannelAndAddress(TCPNIOBindingHandler.java:131)
+[ERROR] at org.glassfish.grizzly.nio.transport.TCPNIOBindingHandler.bind(TCPNIOBindingHandler.java:88)
+[ERROR] at org.glassfish.grizzly.nio.transport.TCPNIOTransport.bind(TCPNIOTransport.java:248)
+[ERROR] at org.glassfish.grizzly.nio.transport.TCPNIOTransport.bind(TCPNIOTransport.java:237)
+[ERROR] at org.glassfish.grizzly.nio.transport.TCPNIOTransport.bind(TCPNIOTransport.java:86)
+[ERROR] at org.glassfish.grizzly.config.GenericGrizzlyListener.start(GenericGrizzlyListener.java:185)
+[ERROR] at com.sun.enterprise.v3.services.impl.GlassfishNetworkListener.start(GlassfishNetworkListener.java:110)
+[ERROR] at com.sun.enterprise.v3.services.impl.GrizzlyProxy.start0(GrizzlyProxy.java:267)
+[ERROR] at com.sun.enterprise.v3.services.impl.GrizzlyProxy.start(GrizzlyProxy.java:241)
+[ERROR] at com.sun.enterprise.v3.services.impl.GrizzlyService.createNetworkProxy(GrizzlyService.java:567)
+[ERROR] at com.sun.enterprise.v3.services.impl.GrizzlyService.postConstruct(GrizzlyService.java:490)
+[ERROR] at org.jvnet.hk2.internal.ClazzCreator.postConstructMe(ClazzCreator.java:329)
+[ERROR] at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:377)
+[ERROR] at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:471)
+[ERROR] at org.glassfish.hk2.runlevel.internal.AsyncRunLevelContext.findOrCreate(AsyncRunLevelContext.java:227)
+[ERROR] at org.glassfish.hk2.runlevel.RunLevelContext.findOrCreate(RunLevelContext.java:84)
+[ERROR] at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2064)
+[ERROR] at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:105)
+[ERROR] at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:87)
+[ERROR] at org.glassfish.hk2.runlevel.internal.CurrentTaskFuture$QueueRunner.oneJob(CurrentTaskFuture.java:1212)
+[ERROR] at org.glassfish.hk2.runlevel.internal.CurrentTaskFuture$QueueRunner.run(CurrentTaskFuture.java:1143)
+[ERROR] at org.glassfish.hk2.runlevel.internal.CurrentTaskFuture$UpOneLevel.run(CurrentTaskFuture.java:761)
+[ERROR] at org.glassfish.hk2.runlevel.internal.CurrentTaskFuture$UpAllTheWay.go(CurrentTaskFuture.java:560)
+[ERROR] at org.glassfish.hk2.runlevel.internal.CurrentTaskFuture$UpAllTheWay.access$100(CurrentTaskFuture.java:442)
+[ERROR] at org.glassfish.hk2.runlevel.internal.CurrentTaskFuture.go(CurrentTaskFuture.java:153)
+[ERROR] at org.glassfish.hk2.runlevel.internal.CurrentTaskFuture.go(CurrentTaskFuture.java:148)
+[ERROR] at org.glassfish.hk2.runlevel.internal.AsyncRunLevelContext.proceedTo(AsyncRunLevelContext.java:435)
+[ERROR] at org.glassfish.hk2.runlevel.internal.RunLevelControllerImpl.proceedTo(RunLevelControllerImpl.java:70)
+[ERROR] at com.sun.enterprise.v3.server.AppServerStartup.proceedTo(AppServerStartup.java:534)
+[ERROR] at com.sun.enterprise.v3.server.AppServerStartup.run(AppServerStartup.java:331)
+[ERROR] at com.sun.enterprise.v3.server.AppServerStartup.doStart(AppServerStartup.java:228)
+[ERROR] at com.sun.enterprise.v3.server.AppServerStartup.start(AppServerStartup.java:219)
+[ERROR] at com.sun.enterprise.glassfish.bootstrap.GlassFishImpl.start(GlassFishImpl.java:79)
+[ERROR] at fi.jasoft.plugin.PayaraServerRunner.main(PayaraServerRunner.java:56)
+[ERROR] 
+[ERROR] Jun 23, 2016 5:50:52 PM com.sun.enterprise.v3.admin.StopServer doExecute
+[ERROR] INFO: Server shutdown initiated
+[ERROR] Jun 23, 2016 5:50:55 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 23, 2016 5:50:55 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 23, 2016 5:50:55 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 23, 2016 5:50:55 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 23, 2016 5:50:55 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 23, 2016 5:50:55 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 23, 2016 5:50:56 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 23, 2016 5:50:57 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 23, 2016 5:50:57 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener http-listeners GrizzlyProxy is NULL
+[ERROR] Jun 23, 2016 5:50:57 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 23, 2016 5:50:57 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 23, 2016 5:50:58 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 23, 2016 5:50:58 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 23, 2016 5:51:00 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 23, 2016 5:51:00 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 7,033 milliseconds.
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 23, 2016 5:52:52 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 23, 2016 5:52:52 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 23, 2016 5:52:53 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 23, 2016 5:52:54 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 23, 2016 5:52:55 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 50ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 23, 2016 5:52:55 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 23, 2016 5:52:55 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 23, 2016 5:52:55 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 23, 2016 5:52:55 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 23, 2016 5:52:55 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (2,547ms), startup services(2,151ms), total(4,698ms)
+[ERROR] Jun 23, 2016 5:52:59 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 23, 2016 5:52:59 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 23, 2016 5:52:59 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 23, 2016 5:52:59 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 23, 2016 5:52:59 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 23, 2016 5:52:59 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 23, 2016 5:52:59 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 23, 2016 5:53:00 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 23, 2016 5:53:00 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 23, 2016 5:53:00 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 23, 2016 5:53:01 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 23, 2016 5:53:01 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 23, 2016 5:53:03 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 23, 2016 5:53:03 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 5,997 milliseconds.
+[ERROR] Jun 23, 2016 5:53:04 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 23, 2016 5:53:05 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 1:06:03 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 1:06:04 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 1:06:04 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 1:06:06 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 1:06:06 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 64ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 1:06:06 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 1:06:06 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:06:06 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:06:06 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:06:07 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (6,800ms), startup services(2,548ms), total(9,348ms)
+[ERROR] Jun 24, 2016 1:06:11 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 1:06:11 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 1:06:11 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 1:06:11 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 1:06:11 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 1:06:11 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 1:06:11 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 1:06:12 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 1:06:12 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 1:06:12 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 1:06:13 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 1:06:13 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 1:06:15 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 1:06:16 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 6,705 milliseconds.
+[ERROR] Jun 24, 2016 1:06:17 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 1:06:17 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 1:07:08 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 1:07:09 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 1:07:09 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 1:07:10 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 1:07:10 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 32ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 1:07:10 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 1:07:10 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:07:10 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:07:10 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:07:10 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (2,000ms), startup services(1,193ms), total(3,193ms)
+[ERROR] Jun 24, 2016 1:07:13 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 1:07:13 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 1:07:13 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 1:07:13 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 1:07:13 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 1:07:13 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 1:07:14 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 1:07:15 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 1:07:15 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 1:07:15 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 1:07:15 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 1:07:15 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 1:07:17 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 1:07:17 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 5,282 milliseconds.
+[ERROR] Jun 24, 2016 1:07:19 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 1:07:19 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 1:13:29 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 1:13:30 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 1:13:30 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 1:13:32 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 1:13:32 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 50ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 1:13:32 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 1:13:32 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:13:32 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:13:32 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:13:33 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (3,140ms), startup services(2,358ms), total(5,498ms)
+[ERROR] Jun 24, 2016 1:13:37 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 1:13:37 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 1:13:37 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 1:13:37 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 1:13:37 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 1:13:37 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 1:13:37 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 1:13:38 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 1:13:38 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 1:13:38 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 1:13:39 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 1:13:39 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 1:13:41 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 1:13:41 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 6,761 milliseconds.
+[ERROR] Jun 24, 2016 1:13:43 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 1:13:43 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 1:17:32 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 1:17:32 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 1:17:33 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 1:17:34 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 1:17:35 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 58ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 1:17:35 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 1:17:35 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:17:35 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:17:35 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:17:35 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (3,222ms), startup services(2,239ms), total(5,461ms)
+[ERROR] Jun 24, 2016 1:17:39 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 1:17:39 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 1:17:39 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 1:17:39 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 1:17:39 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 1:17:39 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 1:17:39 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 1:17:40 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 1:17:40 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 1:17:40 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 1:17:41 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 1:17:41 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 1:17:43 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 1:17:43 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 6,085 milliseconds.
+[ERROR] Jun 24, 2016 1:17:44 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 1:17:44 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 1:23:14 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 1:23:15 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 1:23:15 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 1:23:17 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 1:23:17 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 58ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 1:23:17 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 1:23:17 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:23:17 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:23:17 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:23:18 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (3,178ms), startup services(2,288ms), total(5,466ms)
+[ERROR] Jun 24, 2016 1:23:21 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 1:23:21 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 1:23:21 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 1:23:22 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 1:23:22 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 1:23:22 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 1:23:22 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 1:23:23 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 1:23:23 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 1:23:23 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 1:23:24 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 1:23:24 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 1:23:25 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 1:23:26 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 6,354 milliseconds.
+[ERROR] Jun 24, 2016 1:23:27 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 1:23:27 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 1:24:52 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 1:24:53 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 1:24:53 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 1:24:55 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 1:24:55 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 47ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 1:24:55 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 1:24:55 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:24:55 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:24:55 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 1:24:56 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (2,914ms), startup services(2,405ms), total(5,319ms)
+[ERROR] Jun 24, 2016 1:25:00 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 1:25:00 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 1:25:00 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 1:25:00 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 1:25:00 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 1:25:00 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 1:25:00 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 1:25:01 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 1:25:01 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 1:25:01 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 1:25:02 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 1:25:02 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 1:25:04 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 1:25:05 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 6,601 milliseconds.
+[ERROR] Jun 24, 2016 1:25:06 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 1:25:06 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 3:19:40 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 3:19:41 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 3:19:42 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 3:19:44 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 3:19:44 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 56ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 3:19:44 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 3:19:44 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:19:44 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:19:44 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:19:45 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (3,472ms), startup services(2,849ms), total(6,321ms)
+[ERROR] Jun 24, 2016 3:19:49 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 3:19:49 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 3:19:49 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 3:19:49 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:19:49 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:19:49 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 3:19:49 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 3:19:51 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 3:19:51 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 3:19:51 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 3:19:52 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 3:19:52 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 3:19:55 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 3:19:55 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 8,316 milliseconds.
+[ERROR] Jun 24, 2016 3:19:58 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 3:19:58 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 3:27:38 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 3:27:39 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 3:27:39 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 3:27:41 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 3:27:41 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 53ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 3:27:41 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 3:27:41 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:27:41 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:27:41 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:27:43 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (3,700ms), startup services(2,882ms), total(6,582ms)
+[ERROR] Jun 24, 2016 3:27:48 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 3:27:48 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 3:27:48 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 3:27:48 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:27:48 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:27:48 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 3:27:48 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 3:27:50 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 3:27:50 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 3:27:50 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 3:27:51 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 3:27:51 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 3:27:54 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 3:27:54 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 8,510 milliseconds.
+[ERROR] Jun 24, 2016 3:27:56 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 3:27:56 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 3:32:16 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 3:32:17 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 3:32:17 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 3:32:19 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 3:32:19 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 44ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 3:32:19 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 3:32:19 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:32:19 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:32:19 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:32:20 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (3,134ms), startup services(2,238ms), total(5,372ms)
+[ERROR] Jun 24, 2016 3:32:24 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 3:32:24 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 3:32:24 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 3:32:24 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:32:24 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:32:24 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 3:32:24 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 3:32:25 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 3:32:25 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 3:32:25 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 3:32:26 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 3:32:26 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 3:32:28 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 3:32:28 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 6,639 milliseconds.
+[ERROR] Jun 24, 2016 3:32:30 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 3:32:30 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 3:36:57 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 3:36:58 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 3:36:58 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 3:37:00 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 3:37:00 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 45ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 3:37:00 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 3:37:00 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:37:00 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:37:00 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:37:01 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (3,115ms), startup services(2,293ms), total(5,408ms)
+[ERROR] Jun 24, 2016 3:37:05 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 3:37:05 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 3:37:05 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 3:37:05 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:37:05 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:37:05 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 3:37:05 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 3:37:06 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 3:37:06 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 3:37:06 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 3:37:07 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 3:37:07 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 3:37:09 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 3:37:09 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 6,443 milliseconds.
+[ERROR] Jun 24, 2016 3:37:10 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 3:37:10 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 3:38:41 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 3:38:42 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 3:38:43 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 3:38:44 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 3:38:45 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 56ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 3:38:45 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 3:38:45 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:38:45 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:38:45 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:38:46 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (3,000ms), startup services(2,541ms), total(5,541ms)
+[ERROR] Jun 24, 2016 3:38:50 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 3:38:50 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 3:38:50 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 3:38:50 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:38:50 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:38:50 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 3:38:50 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 3:38:52 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 3:38:52 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 3:38:52 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 3:38:53 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 3:38:53 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 3:38:54 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 3:38:55 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 7,294 milliseconds.
+[ERROR] Jun 24, 2016 3:38:57 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 3:38:57 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[ERROR] Jun 24, 2016 3:39:02 PM com.vaadin.server.communication.UidlRequestHandler synchronizedHandleRequest
+[ERROR] WARNING: Invalid security key received from 0:0:0:0:0:0:0:1
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 3:42:32 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 3:42:33 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 3:42:33 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 3:42:35 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 3:42:35 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 47ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 3:42:35 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 3:42:35 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:42:35 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:42:35 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:42:36 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (3,159ms), startup services(2,299ms), total(5,458ms)
+[ERROR] Jun 24, 2016 3:42:40 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 3:42:40 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 3:42:40 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 3:42:40 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:42:40 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:42:40 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 3:42:40 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 3:42:42 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 3:42:42 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 3:42:42 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 3:42:43 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 3:42:43 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 3:42:45 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 3:42:45 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 6,803 milliseconds.
+[ERROR] Jun 24, 2016 3:42:46 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 3:42:46 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 3:47:36 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 3:47:37 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 3:47:37 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 3:47:39 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 3:47:39 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 45ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 3:47:39 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 3:47:39 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:47:39 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:47:39 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 3:47:40 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (3,147ms), startup services(2,228ms), total(5,375ms)
+[ERROR] Jun 24, 2016 3:47:43 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 3:47:43 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 3:47:43 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 3:47:43 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:47:43 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 3:47:43 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 3:47:43 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 3:47:45 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 3:47:45 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 3:47:45 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 3:47:46 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 3:47:46 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 3:47:48 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 3:47:48 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 6,305 milliseconds.
+[ERROR] Jun 24, 2016 3:47:49 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 3:47:49 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 4:00:26 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 4:00:26 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 4:00:26 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 4:00:27 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 4:00:27 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 36ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 4:00:27 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 4:00:27 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:00:27 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:00:27 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:00:28 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (2,101ms), startup services(1,288ms), total(3,389ms)
+[ERROR] Jun 24, 2016 4:00:31 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 4:00:31 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 4:00:31 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 4:00:31 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 4:00:31 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 4:00:31 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 4:00:31 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 4:00:32 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 4:00:32 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 4:00:32 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 4:00:33 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 4:00:33 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 4:00:34 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 4:00:35 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 5,381 milliseconds.
+[ERROR] Jun 24, 2016 4:00:36 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 4:00:37 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 4:21:23 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 4:21:23 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 4:21:24 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 4:21:26 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 4:21:26 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 54ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 4:21:26 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 4:21:26 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:21:26 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:21:26 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:21:27 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (3,230ms), startup services(2,495ms), total(5,725ms)
+[ERROR] Jun 24, 2016 4:21:30 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 4:21:30 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 4:21:30 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 4:21:31 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 4:21:31 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 4:21:31 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 4:21:31 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 4:21:32 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 4:21:32 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 4:21:32 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 4:21:33 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 4:21:33 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 4:21:35 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 4:21:36 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 6,933 milliseconds.
+[ERROR] Jun 24, 2016 4:21:37 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 4:21:37 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 4:23:45 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 4:23:45 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 4:23:45 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 4:23:46 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 4:23:46 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 51ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 4:23:46 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 4:23:46 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:23:46 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:23:46 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:23:47 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (1,864ms), startup services(1,154ms), total(3,018ms)
+[ERROR] Jun 24, 2016 4:23:50 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 4:23:50 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 4:23:50 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 4:23:50 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 4:23:50 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 4:23:50 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 4:23:50 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 4:23:51 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 4:23:51 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 4:23:51 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 4:23:51 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 4:23:51 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 4:23:53 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 4:23:54 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 5,192 milliseconds.
+[ERROR] Jun 24, 2016 4:23:55 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 4:23:55 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 4:24:44 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 4:24:44 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 4:24:45 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 4:24:45 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 4:24:45 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 28ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 4:24:45 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 4:24:45 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:24:45 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:24:45 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:24:46 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (1,951ms), startup services(1,193ms), total(3,144ms)
+[ERROR] Jun 24, 2016 4:24:49 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 4:24:49 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 4:24:49 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 4:24:49 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 4:24:49 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 4:24:49 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 4:24:49 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 4:24:50 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 4:24:50 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 4:24:50 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 4:24:50 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 4:24:50 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 4:24:52 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 4:24:52 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 4,649 milliseconds.
+[ERROR] Jun 24, 2016 4:24:53 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 4:24:53 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
+[INFO] Listening for transport dt_socket at address: 8000
+[INFO] Found populator: org.glassfish.kernel.embedded.EmbeddedDomainXml
+[ERROR] Jun 24, 2016 4:37:17 PM org.jvnet.hk2.config.ConfigParser handleElement
+[ERROR] SEVERE: Ignoring unrecognized element jms-service at Line number = 101
+[ERROR] Column number = 72
+[ERROR] System Id = null
+[ERROR] Public Id = null
+[ERROR] Location Uri= null
+[ERROR] CharacterOffset = 5783
+[ERROR] 
+[ERROR] Jun 24, 2016 4:37:18 PM org.glassfish.security.services.impl.authorization.AuthorizationServiceImpl initialize
+[ERROR] INFO: Authorization Service has successfully initialized.
+[ERROR] Jun 24, 2016 4:37:18 PM org.hibernate.validator.internal.util.Version <clinit>
+[ERROR] INFO: HV000001: Hibernate Validator 5.1.2.Final
+[ERROR] Jun 24, 2016 4:37:20 PM org.glassfish.grizzly.config.Utils newInstance
+[ERROR] WARNING: Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn
+[ERROR] Jun 24, 2016 4:37:21 PM com.sun.enterprise.v3.services.impl.GrizzlyProxy start0
+[ERROR] INFO: Grizzly Framework 2.3.21 started in: 60ms - bound to [/0.0.0.0:8080]
+[ERROR] Jun 24, 2016 4:37:21 PM com.sun.enterprise.v3.services.impl.GrizzlyService createNetworkProxy
+[ERROR] INFO: Network listener https-listener on port 0 disabled per domain.xml
+[ERROR] Jun 24, 2016 4:37:21 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:37:21 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:37:21 PM com.sun.enterprise.v3.admin.adapter.AdminEndpointDecider setGuiContextRoot
+[ERROR] INFO: Admin Console Adapter: context root: /admin
+[ERROR] Jun 24, 2016 4:37:22 PM com.sun.enterprise.v3.server.AppServerStartup postStartupJob
+[ERROR] INFO: Undefined Product Name - define product and version info in config/branding  0.0.0.0.0  (0) startup time : Embedded (3,202ms), startup services(2,728ms), total(5,930ms)
+[ERROR] Jun 24, 2016 4:37:26 PM com.sun.enterprise.security.SecurityLifecycle <init>
+[ERROR] INFO: Java security manager is disabled.
+[ERROR] Jun 24, 2016 4:37:26 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Entering Security Startup Service.
+[ERROR] Jun 24, 2016 4:37:26 PM com.sun.enterprise.security.PolicyLoader loadPolicy
+[ERROR] INFO: Loading policy provider com.sun.enterprise.security.jacc.provider.SimplePolicyProvider.
+[ERROR] Jun 24, 2016 4:37:26 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 4:37:26 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.
+[ERROR] Jun 24, 2016 4:37:26 PM com.sun.enterprise.security.auth.realm.Realm doInstantiate
+[ERROR] INFO: Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.
+[ERROR] Jun 24, 2016 4:37:26 PM com.sun.enterprise.security.SecurityLifecycle onInitialization
+[ERROR] INFO: Security Service(s) started successfully.
+[ERROR] Jun 24, 2016 4:37:28 PM com.sun.enterprise.web.WebContainer createHttpListener
+[ERROR] INFO: Created HTTP listener http-listener on host/port 0.0.0.0:8080
+[ERROR] Jun 24, 2016 4:37:28 PM com.sun.enterprise.web.VirtualServer addProbes
+[ERROR] SEVERE: Error adding HttpProbes. NetworkListener https-listeners GrizzlyProxy is NULL
+[ERROR] Jun 24, 2016 4:37:28 PM com.sun.enterprise.web.WebContainer createHosts
+[ERROR] INFO: Created virtual server server
+[ERROR] Jun 24, 2016 4:37:29 PM org.apache.catalina.realm.JAASRealm setContainer
+[ERROR] INFO: Setting JAAS app name glassfish-web
+[ERROR] Jun 24, 2016 4:37:29 PM com.sun.enterprise.web.WebContainer loadSystemDefaultWebModules
+[ERROR] INFO: Virtual server server loaded default web module
+[ERROR] Jun 24, 2016 4:37:31 PM com.sun.enterprise.web.WebApplication start
+[ERROR] INFO: Loading application [JustListApp] at [/]
+[ERROR] Jun 24, 2016 4:37:32 PM org.glassfish.deployment.admin.DeployCommand execute
+[ERROR] INFO: JustListApp was successfully deployed in 7,897 milliseconds.
+[ERROR] Jun 24, 2016 4:37:34 PM com.sun.web.security.RealmAdapter getAppContextID
+[ERROR] WARNING: Context path from ServletContext:  differs from path from bundle: /
+[ERROR] Jun 24, 2016 4:37:34 PM com.vaadin.server.DefaultDeploymentConfiguration checkProductionMode
+[ERROR] WARNING:
+[ERROR] =================================================================
+[ERROR] Vaadin is running in DEBUG MODE.
+[ERROR] Add productionMode=true to web.xml to disable debug features.
+[ERROR] To show debug window, add ?debug to your application URL.
+[ERROR] =================================================================
