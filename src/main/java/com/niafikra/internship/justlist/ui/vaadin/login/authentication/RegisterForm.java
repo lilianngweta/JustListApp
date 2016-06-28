@@ -8,14 +8,10 @@ package com.niafikra.internship.justlist.ui.vaadin.login.authentication;
 //import com.vaadin.shared.ui.label.ContentMode;
 //import com.vaadin.ui.Alignment;
 
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Component;
-import com.vaadin.ui.CssLayout;
-import com.vaadin.ui.FormLayout;
+import com.vaadin.ui.*;
+
 //import com.vaadin.ui.Label;
 //import com.vaadin.ui.Notification;
-import com.vaadin.ui.PasswordField;
-import com.vaadin.ui.TextField;
 //import com.vaadin.ui.VerticalLayout;
 //import com.vaadin.ui.themes.ValoTheme;
 
@@ -53,6 +49,7 @@ public class RegisterForm extends FormLayout {
 
         buttons.addComponent(register = new Button("Register"));
         register.setDisableOnClick(true);
+
 
     }
 
