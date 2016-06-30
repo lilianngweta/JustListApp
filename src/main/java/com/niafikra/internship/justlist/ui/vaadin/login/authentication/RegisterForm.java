@@ -1,27 +1,13 @@
 package com.niafikra.internship.justlist.ui.vaadin.login.authentication;
 
 
-//import java.io.Serializable;
 
-//import com.vaadin.event.ShortcutAction;
-//import com.vaadin.server.Page;
-//import com.vaadin.shared.ui.label.ContentMode;
-//import com.vaadin.ui.Alignment;
 
 import com.niafikra.internship.justlist.data.User;
 import com.niafikra.internship.justlist.service.UserService;
 import com.vaadin.data.fieldgroup.BeanFieldGroup;
 import com.vaadin.data.fieldgroup.FieldGroup;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.FormLayout;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Notification;
-
-//import com.vaadin.ui.Label;
-//import com.vaadin.ui.Notification;
-//import com.vaadin.ui.VerticalLayout;
-//import com.vaadin.ui.themes.ValoTheme;
-
+import com.vaadin.ui.*;
 
 /**
  * Created by lilianngweta on 6/23/16.
@@ -40,14 +26,23 @@ public class RegisterForm extends FormLayout implements Button.ClickListener {
 
         userFieldGroup = new BeanFieldGroup<>(User.class);
         userFieldGroup.setItemDataSource(user);
-
+        userFieldGroup.setFieldFactory(new UserFieldFactory());
         build();
     }
 
     private void build() {
-        addComponent(userFieldGroup.buildAndBind("fullName"));
-        addComponent(userFieldGroup.buildAndBind("email"));
-        addComponent(userFieldGroup.buildAndBind("password"));
+        Field fullName = userFieldGroup.buildAndBind("Enter your name","fullName");
+        addComponent(fullName);
+        setComponentAlignment(fullName, Alignment.BOTTOM_CENTER);
+
+        Field email = userFieldGroup.buildAndBind("email");
+        addComponent(email);
+        setComponentAlignment(email, Alignment.BOTTOM_CENTER);
+
+        Field password = userFieldGroup.buildAndBind("password");
+        addComponent(password);
+        setComponentAlignment(password, Alignment.BOTTOM_CENTER);
+
 
         HorizontalLayout buttons = new HorizontalLayout();
         addComponent(buttons);
@@ -65,6 +60,8 @@ public class RegisterForm extends FormLayout implements Button.ClickListener {
             boolean result = userService.register(user);
 
             if(result) Notification.show("Successfully registered user");
+
+           // userFieldGroup.setFieldFactory(new UserFieldFactory());
         } catch (FieldGroup.CommitException e) {
             e.printStackTrace();
         }

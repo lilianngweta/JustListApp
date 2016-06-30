@@ -11,11 +11,7 @@ public class MySqlConnector {
 
 
         public static Connection conn = null;
-    //    public static void main(String[] args) {
-//         loadDriver();
-//
-//        System.out.println(getConnection());
-//    }
+
         private static void loadDriver() {
             try {
 
