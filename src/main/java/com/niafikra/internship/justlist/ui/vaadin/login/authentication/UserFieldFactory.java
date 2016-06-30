@@ -15,9 +15,16 @@ public class UserFieldFactory extends DefaultFieldGroupFieldFactory {
     @Override
     public <T extends Field> T createField(Class<?> type, Class<T> fieldType) {
         TextField field = (TextField)  super.createField(type, fieldType);
+
         field.setNullRepresentation("");
+
+        field.setValue("");
+
         return (T) field;
     }
+
+
+
 
 
 }

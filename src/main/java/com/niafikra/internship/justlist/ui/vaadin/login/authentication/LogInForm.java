@@ -1,18 +1,8 @@
 package com.niafikra.internship.justlist.ui.vaadin.login.authentication;
 
-//import java.io.Serializable;
-
-//import com.vaadin.event.ShortcutAction;
-//import com.vaadin.server.Page;
-//import com.vaadin.shared.ui.label.ContentMode;
-//import com.vaadin.ui.Alignment;
 import com.niafikra.internship.justlist.data.User;
 import com.niafikra.internship.justlist.service.UserService;
 import com.vaadin.ui.*;
-//import com.vaadin.ui.Label;
-//import com.vaadin.ui.Notification;
-//import com.vaadin.ui.VerticalLayout;
-//import com.vaadin.ui.themes.ValoTheme;
 import com.vaadin.ui.Button.ClickListener;
 
 
@@ -73,8 +63,9 @@ else {
        Notification.show("Either email or password is incorrect, Try Again!");
 
 }
-//        email.setNullRepresentation("");
-//        password.setNullRepresentation("");
+        email.setValue("");
+        password.setValue("");
+
 }
 }
 

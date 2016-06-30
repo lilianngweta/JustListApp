@@ -19,6 +19,9 @@ public class RegisterForm extends FormLayout implements Button.ClickListener {
     private User user;
 
     private UserService userService;
+    private Field fullName;
+    private Field email;
+    private Field password;
 
     public RegisterForm() {
         user = new User();
@@ -31,15 +34,15 @@ public class RegisterForm extends FormLayout implements Button.ClickListener {
     }
 
     private void build() {
-        Field fullName = userFieldGroup.buildAndBind("Enter your name","fullName");
+        fullName = userFieldGroup.buildAndBind("Enter your name","fullName");
         addComponent(fullName);
         setComponentAlignment(fullName, Alignment.BOTTOM_CENTER);
 
-        Field email = userFieldGroup.buildAndBind("email");
+        email = userFieldGroup.buildAndBind("email");
         addComponent(email);
         setComponentAlignment(email, Alignment.BOTTOM_CENTER);
 
-        Field password = userFieldGroup.buildAndBind("password");
+        password = userFieldGroup.buildAndBind("password");
         addComponent(password);
         setComponentAlignment(password, Alignment.BOTTOM_CENTER);
 
@@ -64,7 +67,13 @@ public class RegisterForm extends FormLayout implements Button.ClickListener {
            // userFieldGroup.setFieldFactory(new UserFieldFactory());
         } catch (FieldGroup.CommitException e) {
             e.printStackTrace();
+            //userFieldGroup.setFieldFactory(new UserFieldFactory());
         }
+
+        fullName.setValue("");
+        email.setValue("");
+        password.setValue("");
+
 
     }
 }
