@@ -12,11 +12,11 @@ import com.vaadin.ui.HorizontalLayout;
 public class LoginContent extends HorizontalLayout{
 
     private AuthenticationPanel authenticationPanel;
-    private WelcomeLayout welcomeLayout;
+    private WelcomeMessageLayout welcomeView;
 
-    public LoginContent(BaseLoginLayout components) {
+    public LoginContent(LoginView components) {
         authenticationPanel = new AuthenticationPanel();
-        welcomeLayout = new WelcomeLayout();
+        welcomeView = new WelcomeMessageLayout();
 
 
         build();
@@ -25,17 +25,17 @@ public class LoginContent extends HorizontalLayout{
     private void build() {
         setSizeFull();
 
-        addComponent(welcomeLayout);
+        addComponent(welcomeView);
         addComponent(authenticationPanel);
 
-        setExpandRatio(welcomeLayout,1);
+        setExpandRatio(welcomeView,1);
     }
 
     public AuthenticationPanel getAuthenticationPanel() {
         return authenticationPanel;
     }
 
-    public WelcomeLayout getWelcomeLayout() {
-        return welcomeLayout;
+    public WelcomeMessageLayout getWelcomeView() {
+        return welcomeView;
     }
 }

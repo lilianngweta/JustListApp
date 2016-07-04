@@ -1,7 +1,10 @@
 package com.niafikra.internship.justlist.ui.vaadin.login.authentication;
 
+import com.niafikra.internship.justlist.JustListAppUI;
+import com.niafikra.internship.justlist.Views.TasksView;
 import com.niafikra.internship.justlist.data.User;
 import com.niafikra.internship.justlist.service.UserService;
+import com.vaadin.navigator.Navigator;
 import com.vaadin.ui.*;
 import com.vaadin.ui.Button.ClickListener;
 
@@ -16,12 +19,11 @@ public class LogInForm extends FormLayout implements ClickListener {
      * UI content when the user is not logged in yet.
      */
 
+
     private UserService userService;
     private TextField email;
     private PasswordField password;
     private Button login;
-
-
 
 
     public LogInForm() {
@@ -46,27 +48,30 @@ public class LogInForm extends FormLayout implements ClickListener {
         addComponent(buttons);
 
         buttons.addComponent(login = new Button("Login"));
-        login.setDisableOnClick(true);
+        login.setDisableOnClick(false);
         login.addClickListener(this);
 
     }
 
 
+
     @Override
     public void buttonClick(Button.ClickEvent clickEvent) {
 
-        User user = userService.authenticate(email.getValue(),password.getValue());
-        if(user != null){
-            Notification.show("Successfully logged in!");
-        }
-else {
-       Notification.show("Either email or password is incorrect, Try Again!");
+        User user = userService.authenticate(email.getValue(), password.getValue());
+        if (user != null) {
 
-}
+            JustListAppUI justListAppUI = (JustListAppUI) getUI();
+            justListAppUI.getNavigator().navigateTo("main");
+            //Notification.show("Successfully logged in!");
+        } else {
+            Notification.show("Either email or password is incorrect, Try Again!");
+
+        }
         email.setValue("");
         password.setValue("");
 
-}
+    }
 }
 
 

@@ -21,7 +21,7 @@ public class AuthenticationPanel extends VerticalLayout {
     private void build() {
         setWidth("400px");
         setHeight("800px");
-        addStyleName("backColorBrown");
+       // addStyleName("backColorBrown");
     }
 
     public void showLogin() {

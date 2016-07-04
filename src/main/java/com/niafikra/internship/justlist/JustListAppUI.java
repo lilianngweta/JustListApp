@@ -1,31 +1,35 @@
 package com.niafikra.internship.justlist;
 
-import com.niafikra.internship.justlist.ui.vaadin.login.BaseLoginLayout;
+import com.niafikra.internship.justlist.ui.vaadin.login.LoginExtension;
+import com.niafikra.internship.justlist.ui.vaadin.login.LoginView;
+import com.niafikra.internship.justlist.ui.vaadin.login.MainView;
+import com.niafikra.internship.justlist.ui.vaadin.login.WelcomeMessageLayout;
+import com.niafikra.internship.justlist.ui.vaadin.login.authentication.LogInForm;
+import com.vaadin.navigator.Navigator;
+import com.vaadin.navigator.View;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.UI;
 import com.vaadin.annotations.Theme;
-//package com.example.todolist;
-
-//import com.vaadin.ui.UI;
-//import com.vaadin.ui.Label;
-//import com.vaadin.annotations.Theme;
-//import com.vaadin.ui.TextField;
-//import com.vaadin.ui.FormLayout;
-
-//import com.mysql.MysqlJavaConnector;
-//import java.sql.*;
-//import java.sql.Connection;
 
 @Theme("JustListApp")
 public class JustListAppUI extends UI {
 
+
+
+      private  Navigator navigator;
+
     @Override
     protected void init(VaadinRequest request) {
 
-        BaseLoginLayout loginLayout = new BaseLoginLayout();
-        setContent(loginLayout);
+        navigator = new Navigator(this,this);
+        navigator.addView("",new LoginView());
+        navigator.addView("main",new MainView());
+        navigator.addView("login", new LoginExtension());
 
     }
 
-
+    @Override
+    public Navigator getNavigator() {
+        return navigator;
+    }
 }

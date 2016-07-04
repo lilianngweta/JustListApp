@@ -3,6 +3,7 @@ package com.niafikra.internship.justlist.ui.vaadin.login.authentication;
 
 
 
+import com.niafikra.internship.justlist.JustListAppUI;
 import com.niafikra.internship.justlist.data.User;
 import com.niafikra.internship.justlist.service.UserService;
 import com.vaadin.data.fieldgroup.BeanFieldGroup;
@@ -51,7 +52,7 @@ public class RegisterForm extends FormLayout implements Button.ClickListener {
         addComponent(buttons);
 
         buttons.addComponent(register = new Button("Register"));
-        register.setDisableOnClick(true);
+        register.setDisableOnClick(false);
 
         register.addClickListener(this);
     }
@@ -62,7 +63,14 @@ public class RegisterForm extends FormLayout implements Button.ClickListener {
             userFieldGroup.commit();
             boolean result = userService.register(user);
 
-            if(result) Notification.show("Successfully registered user");
+            if(result){
+
+                JustListAppUI justListAppUI = (JustListAppUI) getUI();
+                justListAppUI.getNavigator().navigateTo("login");
+
+                //Notification.show("Successfully registered user");
+            }
+
 
            // userFieldGroup.setFieldFactory(new UserFieldFactory());
         } catch (FieldGroup.CommitException e) {

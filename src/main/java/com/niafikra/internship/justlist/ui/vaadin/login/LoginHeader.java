@@ -12,10 +12,10 @@ import com.vaadin.ui.*;
  */
 public class LoginHeader extends HorizontalLayout {
 
-    private BaseLoginLayout baseLoginLayout;
+    private LoginView loginView;
 
-    public LoginHeader(BaseLoginLayout baseLoginLayout) {
-        this.baseLoginLayout = baseLoginLayout;
+    public LoginHeader(LoginView loginView) {
+        this.loginView = loginView;
 
         build();
     }
@@ -39,7 +39,7 @@ public class LoginHeader extends HorizontalLayout {
         setComponentAlignment(authenticationLayout, Alignment.TOP_RIGHT);
 
 
-        Button logIn = new Button("Sign");
+        Button logIn = new Button("Sign In");
         logIn.setWidth("150px");
         authenticationLayout.addComponent(logIn);
         authenticationLayout.setComponentAlignment(logIn, Alignment.TOP_RIGHT);
@@ -50,12 +50,12 @@ public class LoginHeader extends HorizontalLayout {
         authenticationLayout.setComponentAlignment(signUp, Alignment.TOP_RIGHT);
 
         logIn.addClickListener(e -> {
-          baseLoginLayout.getLoginContent().getAuthenticationPanel().showLogin();
+          loginView.getLoginContent().getAuthenticationPanel().showLogin();
         });
 
 
         signUp.addClickListener(e -> {
-            baseLoginLayout.getLoginContent().getAuthenticationPanel().showRegister();
+            loginView.getLoginContent().getAuthenticationPanel().showRegister();
         });
 
     }

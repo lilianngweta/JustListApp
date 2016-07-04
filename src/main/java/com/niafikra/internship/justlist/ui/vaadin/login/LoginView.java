@@ -1,5 +1,7 @@
 package com.niafikra.internship.justlist.ui.vaadin.login;
 
+import com.vaadin.navigator.View;
+import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.Resource;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.ui.*;
@@ -10,12 +12,12 @@ import com.vaadin.ui.*;
  * @email bonifacechacha@gmail.com
  * @date 6/24/16 5:48 PM
  */
-public class BaseLoginLayout extends VerticalLayout{
+public class LoginView extends VerticalLayout implements View {
 
     private LoginHeader loginHeader;
     private LoginContent loginContent;
 
-    public BaseLoginLayout() {
+    public LoginView() {
         loginHeader = new LoginHeader(this);
         loginContent =new LoginContent(this);
 
@@ -38,5 +40,10 @@ public class BaseLoginLayout extends VerticalLayout{
 
     public LoginContent getLoginContent() {
         return loginContent;
+    }
+
+    @Override
+    public void enter(ViewChangeListener.ViewChangeEvent event) {
+
     }
 }
