@@ -14,64 +14,21 @@ public class LoginHeader extends HorizontalLayout {
 
     private LoginView loginView;
 
+    private Logo logo;
+    private LoginCreateAccount loginCreateAccount;
+
     public LoginHeader(LoginView loginView) {
         this.loginView = loginView;
+        logo = new Logo();
+        loginCreateAccount = new LoginCreateAccount(loginView);
 
-        build();
-    }
+        addComponent(logo);
+        logo.addComponent(loginCreateAccount);
 
-    private void build() {
-        setWidth("100%");
-        addStyleName("backColorWhite");
-
-        putLogo();
-        putAuthenticationButtons();
 
     }
 
-    private void putAuthenticationButtons() {
-        // Serve the image from the theme
-        HorizontalLayout authenticationLayout = new HorizontalLayout();
-        authenticationLayout.setWidth("500px");
-        authenticationLayout.setMargin(true);
 
-        addComponent(authenticationLayout);
-        setComponentAlignment(authenticationLayout, Alignment.TOP_RIGHT);
-
-
-        Button logIn = new Button("Sign In");
-        logIn.setWidth("150px");
-        authenticationLayout.addComponent(logIn);
-        authenticationLayout.setComponentAlignment(logIn, Alignment.TOP_RIGHT);
-
-        Button signUp = new Button("Create an account");
-        signUp.setWidth("200px");
-        authenticationLayout.addComponent(signUp);
-        authenticationLayout.setComponentAlignment(signUp, Alignment.TOP_RIGHT);
-
-        logIn.addClickListener(e -> {
-          loginView.getLoginContent().getAuthenticationPanel().showLogin();
-        });
-
-
-        signUp.addClickListener(e -> {
-            loginView.getLoginContent().getAuthenticationPanel().showRegister();
-        });
-
-    }
-
-    private void putLogo() {
-
-        Resource res = new ThemeResource("Logo.png");
-
-        // Display the image without caption
-        Image image = new Image(null, res);
-
-        image.setWidth("100px");
-        image.setHeight("100px");
-        addComponent(image);
-        setComponentAlignment(image, Alignment.TOP_LEFT);
-    }
 
 
 
