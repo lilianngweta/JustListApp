@@ -1,10 +1,8 @@
 package com.niafikra.internship.justlist.ui.vaadin.login.authentication;
 
 import com.niafikra.internship.justlist.JustListAppUI;
-import com.niafikra.internship.justlist.Views.TasksView;
 import com.niafikra.internship.justlist.data.User;
 import com.niafikra.internship.justlist.service.UserService;
-import com.vaadin.navigator.Navigator;
 import com.vaadin.ui.*;
 import com.vaadin.ui.Button.ClickListener;
 
@@ -36,15 +34,13 @@ public class LogInForm extends FormLayout implements ClickListener {
         setSizeFull();
         setMargin(true);
 
-        addComponent(email = new TextField("Username"));
+        addComponent(email = new TextField("Email"));
         email.setWidth("250px");
         setComponentAlignment(email, Alignment.BOTTOM_CENTER);
         addComponent(password = new PasswordField("Password"));
         password.setWidth("250px");
         setComponentAlignment(password, Alignment.BOTTOM_CENTER);
-        //password.setDescription("Write anything");
         CssLayout buttons = new CssLayout();
-        // buttons.setStyleName("buttons");
         addComponent(buttons);
 
         buttons.addComponent(login = new Button("Login"));

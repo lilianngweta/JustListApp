@@ -12798,6 +12798,10 @@ div.v-layout.v-horizontal.v-widget {
 	background-color: white;
 }
 
-.JustListApp .backColorBrown {
+.JustListApp .backColorAqua {
 	background-color: aqua;
+}
+
+.JustListApp .backColorPurple {
+	background-color: rosybrown;
 }

@@ -13,6 +13,8 @@ public class Logo extends HorizontalLayout {
 
     public Logo(){
 
+        //setSizeFull();
+
         build();
 
     }
@@ -23,6 +25,7 @@ public class Logo extends HorizontalLayout {
         setMargin(true);
         setWidth("100%");
         addStyleName("backColorWhite");
+        //setSizeFull();
 
         putLogo();
 

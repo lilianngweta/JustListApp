@@ -13,34 +13,35 @@ import com.vaadin.ui.*;
 public class MainView extends VerticalLayout implements View {
 
     private MainHeader mainHeader;
+    private TasksContent tasksContent;
 
     public MainView(){
 
         mainHeader = new MainHeader();
+        tasksContent = new TasksContent();
 
         addComponent(mainHeader);
+        addComponent(tasksContent);
 
         setSizeFull();
 
+        setExpandRatio(tasksContent,1);
 
-
-
-
-        //build();
     }
 
 
+    public MainHeader getMainHeader() {
+        return mainHeader;
+    }
 
-
-
-
-
-
-
+    public TasksContent getTasksContent() {
+        return tasksContent;
+    }
 
     @Override
+
     public void enter(ViewChangeListener.ViewChangeEvent event) {
 
-        //addComponent(new Label("WE ARE INSIDE"));
+
     }
 }

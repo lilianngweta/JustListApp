@@ -24,6 +24,8 @@ public class LoginHeader extends HorizontalLayout {
 
         addComponent(logo);
         logo.addComponent(loginCreateAccount);
+        logo.setWidth("1450px");
+        logo.setComponentAlignment(loginCreateAccount, Alignment.MIDDLE_RIGHT);
 
 
     }
