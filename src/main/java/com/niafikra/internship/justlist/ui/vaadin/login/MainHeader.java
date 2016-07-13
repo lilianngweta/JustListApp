@@ -10,25 +10,19 @@ import com.vaadin.ui.HorizontalLayout;
  */
 public class MainHeader extends HorizontalLayout {
 
-    private LogOut logOut;
+    private LogOutLayout logOutLayout;
     private Logo logo;
 
     public MainHeader(){
-
-        logOut = new LogOut();
+        setWidth("100%");
+        logOutLayout = new LogOutLayout();
         logo = new Logo();
 
         addComponent(logo);
-        logo.addComponent(logOut);
-        logo.setWidth("1450px");
+        addComponent(logOutLayout);
 
-        logo.setComponentAlignment(logOut, Alignment.MIDDLE_RIGHT);
-
-
+        setComponentAlignment(logOutLayout, Alignment.MIDDLE_RIGHT);
     }
-
-
-
 
 
 }

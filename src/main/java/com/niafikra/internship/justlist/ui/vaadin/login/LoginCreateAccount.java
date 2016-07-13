@@ -22,7 +22,6 @@ public class LoginCreateAccount extends HorizontalLayout {
 
     private void build() {
         setWidth("100%");
-        addStyleName("backColorWhite");
         putAuthenticationButtons();
 
     }

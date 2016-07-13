@@ -1,8 +1,7 @@
 package com.niafikra.internship.justlist.ui.vaadin.login;
 
-import com.vaadin.server.Resource;
-import com.vaadin.server.ThemeResource;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.HorizontalLayout;
 
 /**
  * @author Boniface Chacha
@@ -18,21 +17,17 @@ public class LoginHeader extends HorizontalLayout {
     private LoginCreateAccount loginCreateAccount;
 
     public LoginHeader(LoginView loginView) {
+        setWidth("100%");
+
+        addStyleName("backColorWhite");
         this.loginView = loginView;
         logo = new Logo();
         loginCreateAccount = new LoginCreateAccount(loginView);
 
         addComponent(logo);
-        logo.addComponent(loginCreateAccount);
-        logo.setWidth("1450px");
-        logo.setComponentAlignment(loginCreateAccount, Alignment.MIDDLE_RIGHT);
-
-
+        addComponent(loginCreateAccount);
+        setComponentAlignment(loginCreateAccount, Alignment.MIDDLE_RIGHT);
     }
-
-
-
-
 
 
 }

@@ -1,6 +1,5 @@
 package com.niafikra.internship.justlist.ui.vaadin.login.project.functions;
 
-import com.niafikra.internship.justlist.data.Project;
 import com.niafikra.internship.justlist.service.ProjectService;
 import com.vaadin.ui.*;
 
@@ -37,6 +36,8 @@ public class AddProjectWindow implements Button.ClickListener {
         content.addComponent(textField);
         textField.setWidth("300px");
         content.setComponentAlignment(textField,Alignment.MIDDLE_CENTER);
+
+        save.addClickListener(this);
         content.addComponent(save);
         content.setComponentAlignment(save, Alignment.MIDDLE_CENTER);
 
