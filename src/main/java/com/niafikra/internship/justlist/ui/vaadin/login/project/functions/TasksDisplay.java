@@ -18,7 +18,7 @@ public class TasksDisplay extends HorizontalLayout {
 
         tasksService = new TasksService();
 
-        //showTasks();
+        showTasks();
 
     }
 
