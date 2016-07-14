@@ -18,6 +18,7 @@ public class MainHeader extends HorizontalLayout {
         logOutLayout = new LogOutLayout();
         logo = new Logo();
 
+        addStyleName("backColorWhite");
         addComponent(logo);
         addComponent(logOutLayout);
 

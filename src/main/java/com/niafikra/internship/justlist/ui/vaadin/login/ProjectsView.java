@@ -2,7 +2,7 @@ package com.niafikra.internship.justlist.ui.vaadin.login;
 
 import com.niafikra.internship.justlist.ui.vaadin.login.project.functions.SearchAdd;
 import com.vaadin.ui.Alignment;
-import com.vaadin.ui.Label;
+//import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
 /**
@@ -15,9 +15,6 @@ public class ProjectsView extends VerticalLayout {
     public ProjectsView(){
 
         searchAdd = new SearchAdd();
-
-        //addStyleName("backColorAqua");
-
         build();
     }
 
