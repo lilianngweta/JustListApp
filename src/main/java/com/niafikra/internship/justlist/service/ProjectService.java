@@ -1,8 +1,11 @@
 package com.niafikra.internship.justlist.service;
 
+import com.niafikra.internship.justlist.data.Project;
 import com.niafikra.internship.justlist.mysql.MySqlConnector;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by lilianngweta on 7/12/16.
@@ -13,7 +16,7 @@ public class ProjectService {
 
     private static ProjectService projectService;
 
-   // private Project project;
+   private Project project;
 
     public static ProjectService get() {
 
@@ -44,6 +47,33 @@ public class ProjectService {
         }
 
 
+    }
+
+
+    public List<Project> getProjects(){
+
+        List<Project> projectList = new ArrayList<Project>();
+
+        try {
+            PreparedStatement projectItem = connection.prepareStatement("SELECT *FROM Project");
+
+            ResultSet resultSet = projectItem.executeQuery();
+
+            while(resultSet.next()){
+
+                project = new Project();
+                project.setId(resultSet.getLong("id"));
+                project.setName(resultSet.getString("Name"));
+
+                projectList.add(project);
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return projectList;
     }
 
 

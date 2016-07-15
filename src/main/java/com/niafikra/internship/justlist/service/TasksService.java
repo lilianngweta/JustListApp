@@ -2,6 +2,8 @@ package com.niafikra.internship.justlist.service;
 
 import com.niafikra.internship.justlist.data.Task;
 import com.niafikra.internship.justlist.mysql.MySqlConnector;
+import com.vaadin.ui.Notification;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +43,7 @@ public class TasksService {
     }
 
 
-    public List<Task> addTasks() {
+    public List<Task> getTasks() {
 
         List<Task> taskList = new ArrayList<Task>();
 
@@ -56,7 +58,7 @@ public class TasksService {
             while (result.next()) {
 
                 task = new Task();
-                task.setName(result.getString("name"));
+                task.setName(result.getString("TaskName"));
 
                 taskList.add(task);
 
@@ -65,9 +67,10 @@ public class TasksService {
 
 
         } catch (SQLException e) {
+            Notification.show(e.getMessage());
             e.printStackTrace();
         }
-
+       // Notification.show(taskList.toString());
         return taskList;
     }
 

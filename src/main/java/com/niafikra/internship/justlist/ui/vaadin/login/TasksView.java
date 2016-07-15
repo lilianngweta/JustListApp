@@ -1,8 +1,7 @@
 package com.niafikra.internship.justlist.ui.vaadin.login;
-import com.niafikra.internship.justlist.ui.vaadin.login.project.functions.TasksDisplay;
-import com.niafikra.internship.justlist.ui.vaadin.login.task.functions.TasksLayout;
+import com.niafikra.internship.justlist.ui.vaadin.login.task.functions.TasksDisplay;
+import com.niafikra.internship.justlist.ui.vaadin.login.task.functions.TasksHeader;
 import com.vaadin.ui.Alignment;
-import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.VerticalLayout;
 
 /**
@@ -10,13 +9,15 @@ import com.vaadin.ui.VerticalLayout;
  */
 public class TasksView extends VerticalLayout {
 
-    private TasksLayout tasksLayout;
-    //private TasksDisplay tasksDisplay;
+    private TasksHeader tasksHeader;
+    private TasksDisplay tasksDisplay;
 
     public TasksView(){
 
-        tasksLayout = new TasksLayout();
-       // tasksDisplay = new TasksDisplay();
+
+        tasksDisplay = new TasksDisplay();
+        tasksHeader = new TasksHeader(tasksDisplay);
+
         build();
     }
 
@@ -24,12 +25,20 @@ public class TasksView extends VerticalLayout {
         setSizeFull();
         setMargin(true);
         addStyleName("backColorPurple");
-        addComponent(tasksLayout);
-        setComponentAlignment(tasksLayout, Alignment.TOP_CENTER);
-       // addComponent(tasksDisplay);
+        addComponent(tasksHeader);
+        setComponentAlignment(tasksHeader, Alignment.TOP_CENTER);
+        addComponent(tasksDisplay);
         //setComponentAlignment(tasksPanel, Alignment.);
+        setExpandRatio(tasksDisplay,5);
+        setExpandRatio(tasksHeader,1);
 
     }
 
+    public TasksHeader getTasksLayout() {
+        return tasksHeader;
+    }
 
+    public TasksDisplay getTasksDisplay() {
+        return tasksDisplay;
+    }
 }

@@ -1,26 +1,23 @@
 package com.niafikra.internship.justlist.ui.vaadin.login.task.functions;
 
 import com.niafikra.internship.justlist.service.TasksService;
-import com.niafikra.internship.justlist.ui.vaadin.login.project.functions.TasksDisplay;
 import com.vaadin.ui.*;
 
 /**
  * Created by lilianngweta on 7/13/16.
  */
-public class TasksLayout extends HorizontalLayout{
+public class TasksHeader extends HorizontalLayout{
 
     private TextField textField;
     private Button addTask;
     private TasksService tasksService;
     private TasksDisplay tasksDisplay;
 
-    public TasksLayout(){
+    public TasksHeader( TasksDisplay tasksDisplay){
+
+        setTasksDisplay(tasksDisplay);
 
         tasksService = new TasksService();
-
-        tasksDisplay = new TasksDisplay();
-
-
         build();
 
     }
@@ -29,17 +26,19 @@ public class TasksLayout extends HorizontalLayout{
 
         setSizeFull();
         textField = new TextField();
-        textField.setWidth("700px");
+        textField.setWidth("100%");
         addComponent(textField);
         setComponentAlignment(textField, Alignment.TOP_CENTER);
         addTask = new Button("Add Task");
         addTask.setWidth("100px");
+        setExpandRatio(textField,1);
 
         //addComponent(userService);
         addTask.addClickListener(e ->{
 
             tasksService.saveTask(textField.getValue());
-            tasksDisplay.showTasks();
+            //removeAllComponents();
+            tasksDisplay.fetchTasks();
 
         });
         addComponent(addTask);
@@ -47,6 +46,9 @@ public class TasksLayout extends HorizontalLayout{
 
     }
 
+    public void setTasksDisplay(TasksDisplay tasksDisplay) {
+        this.tasksDisplay = tasksDisplay;
+    }
 
     public TextField getTextField() {
         return textField;

@@ -8,13 +8,18 @@ import com.vaadin.ui.TextField;
 /**
  * Created by lilianngweta on 7/11/16.
  */
-public class SearchAdd extends HorizontalLayout{
+public class ProjectsHeader extends HorizontalLayout{
 
     private TextField searchBar;
     private Button addProject;
     private AddProjectWindow addProjectWindow;
+    private ProjectsDisplay projectsDisplay;
 
-    public SearchAdd(){
+    public ProjectsHeader(ProjectsDisplay projectsDisplay){
+
+        setProjectsDisplay(projectsDisplay);
+
+
 
         searchBar = new TextField();
         addProject = new Button("Add");
@@ -35,7 +40,7 @@ public class SearchAdd extends HorizontalLayout{
 
        addProject.addClickListener(event -> {
 
-           addProjectWindow = new AddProjectWindow();
+           addProjectWindow = new AddProjectWindow(projectsDisplay);
 
            //setComponentAlignment(addProjectWindow, Alignment.MIDDLE_CENTER);
 
@@ -45,5 +50,7 @@ public class SearchAdd extends HorizontalLayout{
 
     }
 
-
+    public void setProjectsDisplay(ProjectsDisplay projectsDisplay) {
+        this.projectsDisplay = projectsDisplay;
+    }
 }
