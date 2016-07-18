@@ -17,7 +17,7 @@ public class TasksHeader extends HorizontalLayout{
 
         setTasksDisplay(tasksDisplay);
 
-        tasksService = new TasksService();
+        tasksService = TasksService.get();
         build();
 
     }

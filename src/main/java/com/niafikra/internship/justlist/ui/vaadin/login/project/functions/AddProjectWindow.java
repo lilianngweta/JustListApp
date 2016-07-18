@@ -18,7 +18,7 @@ public class AddProjectWindow implements Button.ClickListener {
         setProjectsDisplay(projectsDisplay);
         textField = new TextField();
         save = new Button("Save");
-        projectService = new ProjectService();
+        projectService = ProjectService.get();
         //project = new Project();
 
         build();

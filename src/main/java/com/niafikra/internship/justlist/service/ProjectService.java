@@ -34,7 +34,7 @@ public class ProjectService {
         try {
             statement = connection.createStatement();
 
-            String query = "INSERT INTO Project (Name)" + "VALUES ('" + name + "')";
+            String query = "INSERT INTO Project (name)" + "VALUES ('" + name + "')";
 
             statement.executeUpdate(query);
 
@@ -63,7 +63,7 @@ public class ProjectService {
 
                 project = new Project();
                 project.setId(resultSet.getLong("id"));
-                project.setName(resultSet.getString("Name"));
+                project.setName(resultSet.getString("name"));
 
                 projectList.add(project);
 

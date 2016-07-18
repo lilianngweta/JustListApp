@@ -26,7 +26,7 @@ public class UserService {
         Statement statement = null;
         try {
             statement = connection.createStatement();
-            String query = "INSERT INTO User (FullName, Email, Password)" + "VALUES ('" + user.getFullName() + "','" + user.getEmail() + "','" + user.getPassword() + "')";
+            String query = "INSERT INTO User (fullName, email, password)" + "VALUES ('" + user.getFullName() + "','" + user.getEmail() + "','" + user.getPassword() + "')";
 
             statement.executeUpdate(query);
             return true;
@@ -56,9 +56,9 @@ public class UserService {
                 user = new User();
 
                 user.setId(result.getLong("id"));
-                user.setFullName(result.getString("FullName"));
-                user.setEmail(result.getString("Email"));
-                user.setPassword(result.getString("Password"));
+                user.setFullName(result.getString("fullName"));
+                user.setEmail(result.getString("email"));
+                user.setPassword(result.getString("password"));
                 return user;
 
             }

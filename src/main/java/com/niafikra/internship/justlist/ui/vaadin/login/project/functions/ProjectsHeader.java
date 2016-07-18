@@ -42,7 +42,6 @@ public class ProjectsHeader extends HorizontalLayout{
 
            addProjectWindow = new AddProjectWindow(projectsDisplay);
 
-           //setComponentAlignment(addProjectWindow, Alignment.MIDDLE_CENTER);
 
 
         });

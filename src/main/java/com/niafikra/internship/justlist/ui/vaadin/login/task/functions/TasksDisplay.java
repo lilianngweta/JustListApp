@@ -17,7 +17,7 @@ public class TasksDisplay extends HorizontalLayout {
 
     public TasksDisplay(){
 
-        tasksService = new TasksService();
+        tasksService = TasksService.get();
         container =
                 new BeanItemContainer<Task>(Task.class);
         setSizeFull();

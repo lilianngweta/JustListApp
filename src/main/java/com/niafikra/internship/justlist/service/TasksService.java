@@ -17,11 +17,18 @@ public class TasksService {
 
     Connection connection = MySqlConnector.getConnection();
 
+    private static TasksService tasksService;
+
     public TasksService() {
 
-        // saveTask();
+    }
 
-      //  showTask();
+    public static TasksService get(){
+
+        if (tasksService == null)
+            tasksService = new TasksService();
+
+        return tasksService;
     }
 
 
@@ -30,7 +37,7 @@ public class TasksService {
         try {
             Statement statement = connection.createStatement();
 
-            String query = "INSERT INTO Task (TaskName) " + "VALUES ('" + task + "')";
+            String query = "INSERT INTO Task (name) " + "VALUES ('" + task + "')";
 
             statement.executeUpdate(query);
 
@@ -58,7 +65,7 @@ public class TasksService {
             while (result.next()) {
 
                 task = new Task();
-                task.setName(result.getString("TaskName"));
+                task.setName(result.getString("name"));
 
                 taskList.add(task);
 

@@ -16,7 +16,7 @@ public class ProjectsDisplay extends HorizontalLayout {
 
     public ProjectsDisplay(){
 
-        projectService = new ProjectService();
+        projectService = ProjectService.get();
         container = new BeanItemContainer<Project>(Project.class);
 
         Grid grid = new Grid(container);

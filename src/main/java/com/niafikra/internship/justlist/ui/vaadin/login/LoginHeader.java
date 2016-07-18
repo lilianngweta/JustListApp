@@ -27,6 +27,7 @@ public class LoginHeader extends HorizontalLayout {
         addComponent(logo);
         addComponent(loginCreateAccount);
         setComponentAlignment(loginCreateAccount, Alignment.MIDDLE_RIGHT);
+        //setMargin(true);
     }
 
 
