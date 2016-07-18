@@ -10,10 +10,10 @@ import java.sql.*;
  */
 public class UserService {
 
-    Connection connection = MySqlConnector.getConnection();
+    private Connection connection = MySqlConnector.getConnection();
+    private User currentSessionUser;
 
     private static UserService userService;
-    private User user;
 
     public static UserService get() {
         if (userService == null)
@@ -23,25 +23,26 @@ public class UserService {
     }
 
 
-    public User getUser(Long userID){
+    public User getUser(Long userID) {
 
         try {
-            PreparedStatement userStatement = connection.prepareStatement("SELECT * FROM User WHERE id='"+userID+"'");
+            PreparedStatement userStatement = connection.prepareStatement("SELECT * FROM User WHERE id='" + userID + "'");
 
             ResultSet result = userStatement.executeQuery();
-            while (result.next()){
-                user = new User();
+            if (result.next()) {
+                User user = new User();
                 user.setId(result.getLong("id"));
                 user.setFullName(result.getString("fullName"));
                 user.setEmail(result.getString("email"));
                 user.setPassword(result.getString("password"));
-            }
+                return user;
+            } else return null;
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
 
-        return user;
 
     }
 
@@ -66,23 +67,26 @@ public class UserService {
 
     public User authenticate(String email, String password) {
 
-        String query1 = "SELECT*FROM User WHERE Email = '"+email+"' AND Password = '"+password+"'";
+        String query1 = "SELECT*FROM User WHERE Email = '" + email + "' AND Password = '" + password + "'";
 
         PreparedStatement userStatement = null;
         try {
-            User user = new User();
+
             userStatement = connection.prepareStatement(query1);
 
             ResultSet result = userStatement.executeQuery();
 
             if (!result.next()) return null;
             else {
-                user = new User();
+                User user = new User();
 
                 user.setId(result.getLong("id"));
                 user.setFullName(result.getString("fullName"));
                 user.setEmail(result.getString("email"));
                 user.setPassword(result.getString("password"));
+
+                currentSessionUser = user;
+
                 return user;
 
             }
@@ -95,5 +99,8 @@ public class UserService {
 
     }
 
+    public User getCurrentSessionUser() {
+        return currentSessionUser;
+    }
 }
 

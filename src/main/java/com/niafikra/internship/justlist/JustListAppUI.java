@@ -11,9 +11,7 @@ import com.vaadin.annotations.Theme;
 @Theme("JustListApp")
 public class JustListAppUI extends UI {
 
-
-
-      private  Navigator navigator;
+    private  Navigator navigator;
 
     @Override
     protected void init(VaadinRequest request) {

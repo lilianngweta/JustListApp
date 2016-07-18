@@ -1,6 +1,7 @@
 package com.niafikra.internship.justlist.service;
 
 import com.niafikra.internship.justlist.data.Project;
+import com.niafikra.internship.justlist.data.User;
 import com.niafikra.internship.justlist.mysql.MySqlConnector;
 
 import java.sql.*;
@@ -12,11 +13,9 @@ import java.util.List;
  */
 public class ProjectService {
 
-    Connection connection = MySqlConnector.getConnection();
+    private Connection connection = MySqlConnector.getConnection();
 
     private static ProjectService projectService;
-
-   private Project project;
 
     public static ProjectService get() {
 
@@ -27,52 +26,46 @@ public class ProjectService {
     }
 
 
-    public boolean save(String name){
+    public boolean save(String projectName, User user) {
 
-        Statement statement = null;
+        PreparedStatement statement = null;
 
         try {
-            statement = connection.createStatement();
-
-            String query = "INSERT INTO Project (name)" + "VALUES ('" + name + "')";
-
-            statement.executeUpdate(query);
-
-
-
+            String query = "INSERT INTO Project (name,user_id) VALUES (?,?)";
+            statement = connection.prepareStatement(query);
+            statement.setString(1,projectName);
+            statement.setLong(2, user.getId());
+            statement.execute();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
-
-
     }
 
-    public Project getProject(Long  projectID){
-
-
+    public Project getProject(Long projectID) {
 
         try {
-            PreparedStatement projectStatement = connection.prepareStatement("SELECT * FROM Project WHERE id = '"+projectID+"'");
+            PreparedStatement projectStatement = connection.prepareStatement("SELECT * FROM Project WHERE id = '" + projectID + "'");
 
             ResultSet result = projectStatement.executeQuery();
 
-            while (result.next()){
-                project = new Project();
+            if (result.next()) {
+                Project project = new Project();
                 project.setId(result.getLong("id"));
                 project.setName(result.getString("name"));
-            }
+
+                return project;
+            } else return null;
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
-
-        return project;
 
     }
 
-    public List<Project> getProjects(){
+    public List<Project> getProjects() {
 
         List<Project> projectList = new ArrayList<Project>();
 
@@ -81,9 +74,9 @@ public class ProjectService {
 
             ResultSet resultSet = projectItem.executeQuery();
 
-            while(resultSet.next()){
+            while (resultSet.next()) {
 
-                project = new Project();
+                Project project = new Project();
                 project.setId(resultSet.getLong("id"));
                 project.setName(resultSet.getString("name"));
 

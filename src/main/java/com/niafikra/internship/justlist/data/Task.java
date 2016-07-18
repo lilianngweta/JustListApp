@@ -3,20 +3,28 @@ package com.niafikra.internship.justlist.data;
 /**
  * Created by lilianngweta on 7/14/16.
  */
-public class Task  {
 
+public class Task {
+
+    private Long id;
     private String name;
     private Project project;
 
-
-
-    public Task (){
+    public Task() {
 
     }
 
     public User getUser() {
-if(project == null) return null;
+        if (project == null) return null;
         return project.getUser();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

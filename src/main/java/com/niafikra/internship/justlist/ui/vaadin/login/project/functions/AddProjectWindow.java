@@ -1,6 +1,7 @@
 package com.niafikra.internship.justlist.ui.vaadin.login.project.functions;
 
 import com.niafikra.internship.justlist.service.ProjectService;
+import com.niafikra.internship.justlist.service.UserService;
 import com.vaadin.ui.*;
 
 /**
@@ -54,7 +55,7 @@ public class AddProjectWindow implements Button.ClickListener {
     @Override
     public void buttonClick(Button.ClickEvent event) {
 
-        boolean result = projectService.save(textField.getValue());
+        boolean result = projectService.save(textField.getValue(), UserService.get().getCurrentSessionUser());
 
         if(result){
 
