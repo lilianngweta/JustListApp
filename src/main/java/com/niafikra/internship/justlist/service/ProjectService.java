@@ -50,7 +50,26 @@ public class ProjectService {
     }
 
     public Project getProject(Long  projectID){
-        return null;
+
+
+
+        try {
+            PreparedStatement projectStatement = connection.prepareStatement("SELECT * FROM Project WHERE id = '"+projectID+"'");
+
+            ResultSet result = projectStatement.executeQuery();
+
+            while (result.next()){
+                project = new Project();
+                project.setId(result.getLong("id"));
+                project.setName(result.getString("name"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return project;
+
     }
 
     public List<Project> getProjects(){

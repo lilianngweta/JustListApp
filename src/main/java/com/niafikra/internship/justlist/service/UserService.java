@@ -13,12 +13,36 @@ public class UserService {
     Connection connection = MySqlConnector.getConnection();
 
     private static UserService userService;
+    private User user;
 
     public static UserService get() {
         if (userService == null)
             userService = new UserService();
 
         return userService;
+    }
+
+
+    public User getUser(Long userID){
+
+        try {
+            PreparedStatement userStatement = connection.prepareStatement("SELECT * FROM User WHERE id='"+userID+"'");
+
+            ResultSet result = userStatement.executeQuery();
+            while (result.next()){
+                user = new User();
+                user.setId(result.getLong("id"));
+                user.setFullName(result.getString("fullName"));
+                user.setEmail(result.getString("email"));
+                user.setPassword(result.getString("password"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return user;
+
     }
 
     public boolean register(User user) {

@@ -49,6 +49,24 @@ public class TasksService {
 
     }
 
+    public Task getTask(Long taskID){
+
+        try {
+            PreparedStatement taskStatement = connection.prepareStatement("SELECT * FROM Task WHERE id ='"+taskID+"'");
+
+            ResultSet result = taskStatement.executeQuery();
+
+            while (result.next()){
+                task = new Task();
+                task.setName(result.getString("name"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return task;
+    }
 
     public List<Task> getTasks() {
 
