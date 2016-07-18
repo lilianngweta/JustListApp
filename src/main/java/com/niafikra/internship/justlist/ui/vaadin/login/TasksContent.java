@@ -12,8 +12,8 @@ public class TasksContent extends HorizontalLayout {
 
     public TasksContent(){
 
-        projectsView = new ProjectsView();
-        tasksView = new TasksView();
+        projectsView = new ProjectsView(this);
+        tasksView = new TasksView(this);
         build();
     }
 

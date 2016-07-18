@@ -13,14 +13,29 @@ public class JustListAppUI extends UI {
 
     private  Navigator navigator;
 
+    private LoginView loginView;
+    private MainView mainView;
+
+
     @Override
     protected void init(VaadinRequest request) {
 
+        loginView = new LoginView();
+        mainView=new MainView();
+
         navigator = new Navigator(this,this);
-        navigator.addView("",new LoginView());
-        navigator.addView("main",new MainView());
+        navigator.addView("",loginView);
+        navigator.addView("main",mainView);
         navigator.addView("login", new LoginExtension());
 
+    }
+
+    public LoginView getLoginView() {
+        return loginView;
+    }
+
+    public MainView getMainView() {
+        return mainView;
     }
 
     @Override

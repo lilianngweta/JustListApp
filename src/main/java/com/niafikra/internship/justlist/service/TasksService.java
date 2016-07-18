@@ -1,11 +1,13 @@
 package com.niafikra.internship.justlist.service;
 
+import com.niafikra.internship.justlist.data.Project;
 import com.niafikra.internship.justlist.data.Task;
 import com.niafikra.internship.justlist.mysql.MySqlConnector;
 import com.vaadin.ui.Notification;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -32,7 +34,7 @@ public class TasksService {
     }
 
 
-    public void saveTask(String task) {
+    public void save(String task, Project currentProject) {
 
         try {
             Statement statement = connection.createStatement();
@@ -100,8 +102,9 @@ public class TasksService {
     }
 
 
-
-
+    public Collection<Task> getTasks(Project project) {
+        return null;
+    }
 }
 
 

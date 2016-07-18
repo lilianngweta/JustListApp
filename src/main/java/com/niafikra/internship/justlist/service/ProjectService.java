@@ -6,6 +6,7 @@ import com.niafikra.internship.justlist.mysql.MySqlConnector;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -33,7 +34,7 @@ public class ProjectService {
         try {
             String query = "INSERT INTO Project (name,user_id) VALUES (?,?)";
             statement = connection.prepareStatement(query);
-            statement.setString(1,projectName);
+            statement.setString(1, projectName);
             statement.setLong(2, user.getId());
             statement.execute();
             return true;
@@ -44,10 +45,10 @@ public class ProjectService {
     }
 
     public Project getProject(Long projectID) {
-
+        PreparedStatement projectStatement;
         try {
-            PreparedStatement projectStatement = connection.prepareStatement("SELECT * FROM Project WHERE id = '" + projectID + "'");
-
+            projectStatement = connection.prepareStatement("SELECT * FROM Project WHERE id = ?");
+            projectStatement.setLong(1, projectID);
             ResultSet result = projectStatement.executeQuery();
 
             if (result.next()) {
@@ -63,6 +64,36 @@ public class ProjectService {
             return null;
         }
 
+    }
+
+    public List<Project> getProjects(User user) {
+        String query = "SELECT * FROM Project WHERE user_id= ?";
+
+        PreparedStatement statement;
+
+        List<Project> projects = new LinkedList<>();
+        try {
+            statement = connection.prepareStatement(query);
+            statement.setLong(1,user.getId());
+
+            ResultSet resultSet= statement.executeQuery();
+
+            while (resultSet.next()){
+                projects.add(
+                        new Project(
+                                resultSet.getLong("id"),
+                                resultSet.getString("name"),
+                                UserService.get().getUser(resultSet.getLong("user_id"))
+                        )
+                );
+            }
+
+            return projects;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public List<Project> getProjects() {

@@ -1,4 +1,5 @@
 package com.niafikra.internship.justlist.ui.vaadin.login;
+import com.niafikra.internship.justlist.data.Project;
 import com.niafikra.internship.justlist.ui.vaadin.login.task.functions.TasksDisplay;
 import com.niafikra.internship.justlist.ui.vaadin.login.task.functions.TasksHeader;
 import com.vaadin.ui.Alignment;
@@ -11,9 +12,10 @@ public class TasksView extends VerticalLayout {
 
     private TasksHeader tasksHeader;
     private TasksDisplay tasksDisplay;
+    private TasksContent tasksContent;
 
-    public TasksView(){
-
+    public TasksView(TasksContent tasksContent) {
+        this.tasksContent=tasksContent;
 
         tasksDisplay = new TasksDisplay();
         tasksHeader = new TasksHeader(tasksDisplay);
@@ -40,5 +42,10 @@ public class TasksView extends VerticalLayout {
 
     public TasksDisplay getTasksDisplay() {
         return tasksDisplay;
+    }
+
+    public void setCurrentProject(Project currentSelectedProject) {
+        tasksHeader.setCurrentProject(currentSelectedProject);
+        tasksDisplay.setCurrentProject(currentSelectedProject);
     }
 }

@@ -1,5 +1,6 @@
 package com.niafikra.internship.justlist.ui.vaadin.login.task.functions;
 
+import com.niafikra.internship.justlist.data.Project;
 import com.niafikra.internship.justlist.service.TasksService;
 import com.vaadin.ui.*;
 
@@ -12,6 +13,7 @@ public class TasksHeader extends HorizontalLayout{
     private Button addTask;
     private TasksService tasksService;
     private TasksDisplay tasksDisplay;
+    private Project currentProject;
 
     public TasksHeader( TasksDisplay tasksDisplay){
 
@@ -36,7 +38,9 @@ public class TasksHeader extends HorizontalLayout{
         //addComponent(userService);
         addTask.addClickListener(e ->{
 
-            tasksService.saveTask(textField.getValue());
+            String taskName= textField.getValue();
+
+            tasksService.save(taskName, currentProject);
             //removeAllComponents();
             tasksDisplay.fetchTasks();
 
@@ -56,5 +60,9 @@ public class TasksHeader extends HorizontalLayout{
 
     public Button getAddTask() {
         return addTask;
+    }
+
+    public void setCurrentProject(Project currentProject) {
+        this.currentProject = currentProject;
     }
 }

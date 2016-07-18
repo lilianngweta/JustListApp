@@ -1,5 +1,6 @@
 package com.niafikra.internship.justlist.ui.vaadin.login.task.functions;
 
+import com.niafikra.internship.justlist.data.Project;
 import com.niafikra.internship.justlist.data.Task;
 import com.niafikra.internship.justlist.service.TasksService;
 import com.vaadin.data.util.BeanItemContainer;
@@ -13,7 +14,8 @@ public class TasksDisplay extends HorizontalLayout {
 
     private TasksService tasksService;
     private BeanItemContainer<Task> container;
-    //private Task task;
+
+    private Project currentProject;
 
     public TasksDisplay(){
 
@@ -35,8 +37,12 @@ public class TasksDisplay extends HorizontalLayout {
 
     public void fetchTasks(){
         container.removeAllItems();
-        container.addAll(tasksService.getTasks());
+        container.addAll(tasksService.getTasks(currentProject));
     }
 
+    public void setCurrentProject(Project currentProject) {
+        this.currentProject = currentProject;
 
+        fetchTasks();
+    }
 }

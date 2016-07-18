@@ -59,7 +59,9 @@ public class LogInForm extends FormLayout implements ClickListener {
 
             JustListAppUI justListAppUI = (JustListAppUI) getUI();
             justListAppUI.getNavigator().navigateTo("main");
-            //Notification.show("Successfully logged in!");
+
+            justListAppUI.getMainView().getTasksContent().getProjectsView().getProjectsDisplay().fetchProjects();
+
         } else {
             Notification.show("Either email or password is incorrect, Try Again!");
 

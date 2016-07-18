@@ -13,11 +13,13 @@ public class ProjectsView extends VerticalLayout {
 
     private ProjectsDisplay projectsDisplay;
     private ProjectsHeader projectsHeader;
+    private TasksContent tasksContent;
 
-    public ProjectsView(){
+    public ProjectsView(TasksContent tasksContent) {
+        this.tasksContent = tasksContent;
 
-        projectsDisplay = new ProjectsDisplay();
-        projectsHeader = new ProjectsHeader(projectsDisplay);
+        projectsDisplay = new ProjectsDisplay(this);
+        projectsHeader = new ProjectsHeader(this);
         build();
     }
 
@@ -30,12 +32,15 @@ public class ProjectsView extends VerticalLayout {
         addComponent(projectsHeader);
         setComponentAlignment(projectsHeader, Alignment.TOP_CENTER);
         addComponent(projectsDisplay);
-        setExpandRatio(projectsDisplay,5);
-        setExpandRatio(projectsHeader,1);
+        setExpandRatio(projectsDisplay, 5);
+        setExpandRatio(projectsHeader, 1);
 
 
     }
 
+    public TasksContent getTasksContent() {
+        return tasksContent;
+    }
 
     public ProjectsDisplay getProjectsDisplay() {
         return projectsDisplay;
