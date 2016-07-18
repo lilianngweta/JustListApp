@@ -18,10 +18,6 @@ public class TasksService {
     Connection connection = MySqlConnector.getConnection();
 
     public TasksService() {
-
-        // saveTask();
-
-      //  showTask();
     }
 
 
@@ -42,7 +38,6 @@ public class TasksService {
 
     }
 
-
     public List<Task> getTasks() {
 
         List<Task> taskList = new ArrayList<Task>();
@@ -59,6 +54,7 @@ public class TasksService {
 
                 task = new Task();
                 task.setName(result.getString("TaskName"));
+                task.setProject(ProjectService.get().getProject(result.getLong("project_id")));
 
                 taskList.add(task);
 
