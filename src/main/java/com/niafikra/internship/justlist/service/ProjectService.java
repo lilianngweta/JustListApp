@@ -98,7 +98,7 @@ public class ProjectService {
 
     public List<Project> getProjects() {
 
-        List<Project> projectList = new ArrayList<Project>();
+        List<Project> projectList = new LinkedList<Project>();
 
         try {
             PreparedStatement projectItem = connection.prepareStatement("SELECT *FROM Project");

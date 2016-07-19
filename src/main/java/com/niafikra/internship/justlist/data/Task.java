@@ -14,6 +14,13 @@ public class Task {
 
     }
 
+    public Task(Long id, String name, Project project) {
+
+        this.id = id;
+        this.name = name;
+        this.project = project;
+    }
+
     public User getUser() {
         if (project == null) return null;
         return project.getUser();

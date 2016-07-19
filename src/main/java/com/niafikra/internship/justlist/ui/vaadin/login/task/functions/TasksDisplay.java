@@ -31,8 +31,6 @@ public class TasksDisplay extends HorizontalLayout {
         grid.setSizeFull();
 
 
-        fetchTasks();
-
     }
 
     public void fetchTasks(){
