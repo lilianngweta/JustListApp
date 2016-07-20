@@ -1,5 +1,7 @@
 package com.niafikra.internship.justlist.ui.vaadin.login;
 import com.niafikra.internship.justlist.data.Project;
+import com.niafikra.internship.justlist.ui.vaadin.login.project.functions.AddProjectWindow;
+import com.niafikra.internship.justlist.ui.vaadin.login.task.functions.AddTaskWindow;
 import com.niafikra.internship.justlist.ui.vaadin.login.task.functions.TasksDisplay;
 import com.niafikra.internship.justlist.ui.vaadin.login.task.functions.TasksHeader;
 import com.vaadin.ui.Alignment;
@@ -13,13 +15,15 @@ public class TasksView extends VerticalLayout {
     private TasksHeader tasksHeader;
     private TasksDisplay tasksDisplay;
     private TasksContent tasksContent;
+    //private AddTaskWindow addTaskWindow;
 
     public TasksView(TasksContent tasksContent) {
         this.tasksContent=tasksContent;
 
-        tasksDisplay = new TasksDisplay();
-        tasksHeader = new TasksHeader(tasksDisplay);
+        tasksDisplay = new TasksDisplay(this);
+        tasksHeader = new TasksHeader(this);
 
+        //addTaskWindow = new AddTaskWindow(tasksDisplay);
         build();
     }
 
@@ -36,7 +40,7 @@ public class TasksView extends VerticalLayout {
 
     }
 
-    public TasksHeader getTasksLayout() {
+    public TasksHeader getTasksHeader() {
         return tasksHeader;
     }
 
@@ -44,8 +48,14 @@ public class TasksView extends VerticalLayout {
         return tasksDisplay;
     }
 
-    public void setCurrentProject(Project currentSelectedProject) {
-        tasksHeader.setCurrentProject(currentSelectedProject);
-        tasksDisplay.setCurrentProject(currentSelectedProject);
+    public TasksContent getTasksContent() {
+        return tasksContent;
     }
+
+   public void setCurrentProject(Project currentSelectedProject) {
+      //  addTaskWindow.setCurrentProject(currentSelectedProject);
+       tasksDisplay.setCurrentProject(currentSelectedProject);
+    }
+
+
 }

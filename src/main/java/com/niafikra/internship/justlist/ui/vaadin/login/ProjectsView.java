@@ -15,6 +15,7 @@ public class ProjectsView extends VerticalLayout {
     private ProjectsHeader projectsHeader;
     private TasksContent tasksContent;
 
+
     public ProjectsView(TasksContent tasksContent) {
         this.tasksContent = tasksContent;
 

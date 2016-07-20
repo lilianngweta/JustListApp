@@ -14,10 +14,25 @@ import com.vaadin.ui.HorizontalLayout;
  */
 public class ProjectsDisplay extends HorizontalLayout {
 
+   // private static ProjectsView projectView;
     private ProjectService projectService;
     private BeanItemContainer<Project> container;
-
+    private Project currentSelectedProject;
     private ProjectsView projectsView;
+    private Grid grid;
+
+//    private static ProjectsDisplay projectsDisplay;
+//
+//    public static ProjectsDisplay get(){
+//
+//        if (projectsDisplay == null)
+//            projectsDisplay = new ProjectsDisplay(projectView);
+//
+//        return projectsDisplay;
+//    }
+
+
+
 
     public ProjectsDisplay(ProjectsView projectsView) {
         this.projectsView = projectsView;
@@ -25,10 +40,12 @@ public class ProjectsDisplay extends HorizontalLayout {
         projectService = ProjectService.get();
         container = new BeanItemContainer<Project>(Project.class);
 
-        Grid grid = new Grid(container);
+        grid = new Grid(container);
         grid.removeColumn("id");
         grid.removeColumn("user");
         grid.addSelectionListener(new SelectionEvent.SelectionListener() {
+
+            //Detects the sel
             @Override
             public void select(SelectionEvent event) {
                 Object selected = ((Grid.SingleSelectionModel)
@@ -36,7 +53,7 @@ public class ProjectsDisplay extends HorizontalLayout {
 
                 if (selected == null) return;
 
-                Project currentSelectedProject = (Project) selected;
+                currentSelectedProject = (Project) selected;
                 projectsView.getTasksContent().getTasksView().setCurrentProject(currentSelectedProject);
 
             }
@@ -55,5 +72,13 @@ public class ProjectsDisplay extends HorizontalLayout {
         container.removeAllItems();
         container.addAll(projectService.getProjects(UserService.get().getCurrentSessionUser()));
 
+    }
+
+    public Project getCurrentSelectedProject() {
+        return currentSelectedProject;
+    }
+
+    public Grid getGrid() {
+        return grid;
     }
 }

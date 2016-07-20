@@ -2,6 +2,8 @@ package com.niafikra.internship.justlist.ui.vaadin.login.task.functions;
 
 import com.niafikra.internship.justlist.data.Project;
 import com.niafikra.internship.justlist.service.TasksService;
+import com.niafikra.internship.justlist.ui.vaadin.login.TasksView;
+import com.niafikra.internship.justlist.ui.vaadin.login.project.functions.AddProjectWindow;
 import com.vaadin.ui.*;
 
 /**
@@ -9,17 +11,22 @@ import com.vaadin.ui.*;
  */
 public class TasksHeader extends HorizontalLayout{
 
-    private TextField textField;
-    private Button addTask;
+    private TextField searchTaskBar;
+    private Button addTaskButton;
     private TasksService tasksService;
     private TasksDisplay tasksDisplay;
     private Project currentProject;
+    private TasksView tasksView;
+    private AddTaskWindow addTaskWindow;
 
-    public TasksHeader( TasksDisplay tasksDisplay){
 
-        setTasksDisplay(tasksDisplay);
+    public TasksHeader( TasksView tasksView){
 
-        tasksService = TasksService.get();
+        this.tasksView = tasksView;
+
+        //setTasksDisplay(tasksDisplay);
+
+       // tasksService = TasksService.get();
         build();
 
     }
@@ -27,42 +34,45 @@ public class TasksHeader extends HorizontalLayout{
     private void build() {
 
         setSizeFull();
-        textField = new TextField();
-        textField.setWidth("100%");
-        addComponent(textField);
-        setComponentAlignment(textField, Alignment.TOP_CENTER);
-        addTask = new Button("Add Task");
-        addTask.setWidth("100px");
-        setExpandRatio(textField,1);
+        searchTaskBar = new TextField();
+        searchTaskBar.setWidth("100%");
+        addComponent(searchTaskBar);
+        setComponentAlignment(searchTaskBar, Alignment.TOP_CENTER);
+        addTaskButton = new Button("Add Task");
+        addTaskButton.setWidth("100px");
+        setExpandRatio(searchTaskBar,1);
 
         //addComponent(userService);
-        addTask.addClickListener(e ->{
+        addTaskButton.addClickListener(e ->{
 
-            String taskName= textField.getValue();
+            addTaskWindow = new AddTaskWindow(tasksView.getTasksDisplay());
 
-            tasksService.save(taskName, currentProject);
-            //removeAllComponents();
-            tasksDisplay.fetchTasks();
+//
+//            String taskName= searchTaskBar.getValue();
+
+//            tasksService.save(taskName, currentProject);
+//            //removeAllComponents();
+//            tasksDisplay.fetchTasks();
 
         });
-        addComponent(addTask);
-        setComponentAlignment(addTask, Alignment.TOP_CENTER);
+        addComponent(addTaskButton);
+        setComponentAlignment(addTaskButton, Alignment.TOP_CENTER);
 
     }
 
-    public void setTasksDisplay(TasksDisplay tasksDisplay) {
-        this.tasksDisplay = tasksDisplay;
-    }
-
-    public TextField getTextField() {
-        return textField;
-    }
-
-    public Button getAddTask() {
-        return addTask;
-    }
-
-    public void setCurrentProject(Project currentProject) {
-        this.currentProject = currentProject;
-    }
+//    public void setTasksDisplay(TasksDisplay tasksDisplay) {
+//        this.tasksDisplay = tasksDisplay;
+//    }
+//
+//    public TextField getSearchTaskBar() {
+//        return searchTaskBar;
+//    }
+//
+//    public Button getAddTaskButton() {
+//        return addTaskButton;
+//    }
+//
+//   public void setCurrentProject(Project currentProject) {
+//       this.currentProject = currentProject;
+    //}
 }

@@ -7,10 +7,10 @@ import com.vaadin.ui.*;
 /**
  * Created by lilianngweta on 7/12/16.
  */
-public class AddProjectWindow implements Button.ClickListener {
+public class AddProjectWindow extends Window implements Button.ClickListener {
 
     private TextField textField;
-    private Button save;
+    private Button saveProjectButton;
     private ProjectService projectService;
     private ProjectsDisplay projectsDisplay;
 
@@ -18,7 +18,7 @@ public class AddProjectWindow implements Button.ClickListener {
 
         setProjectsDisplay(projectsDisplay);
         textField = new TextField();
-        save = new Button("Save");
+        saveProjectButton = new Button("Save");
         projectService = ProjectService.get();
         //project = new Project();
 
@@ -28,9 +28,9 @@ public class AddProjectWindow implements Button.ClickListener {
 
     private void build() {
 
-        Window window = new Window("Add Project");
-        window.setWidth("500px");
-        window.setHeight("200px");
+        //Window window = new Window("Add Project");
+        setWidth("500px");
+        setHeight("200px");
         VerticalLayout content = new VerticalLayout();
         content.setWidth("500px");
         content.setSpacing(true);
@@ -40,14 +40,14 @@ public class AddProjectWindow implements Button.ClickListener {
         content.setComponentAlignment(textField,Alignment.MIDDLE_CENTER);
 
 
-        save.addClickListener(this);
-        content.addComponent(save);
-        content.setComponentAlignment(save, Alignment.MIDDLE_CENTER);
+        saveProjectButton.addClickListener(this);
+        content.addComponent(saveProjectButton);
+        content.setComponentAlignment(saveProjectButton, Alignment.MIDDLE_CENTER);
 
-        window.setContent(content);
-        window.center();
+        setContent(content);
+        center();
 
-        UI.getCurrent().addWindow(window);
+        UI.getCurrent().addWindow(this);
 
     }
 
@@ -59,13 +59,11 @@ public class AddProjectWindow implements Button.ClickListener {
 
         if(result){
 
-
             //removeAllComponents();
             projectsDisplay.fetchProjects();
-
+            close();
             //Notification.show("Successfully saved!!");
         }
-
 
     }
 

@@ -2,6 +2,7 @@ package com.niafikra.internship.justlist.ui.vaadin.login.project.functions;
 
 import com.niafikra.internship.justlist.ui.vaadin.login.ProjectsView;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
 
@@ -10,7 +11,7 @@ import com.vaadin.ui.TextField;
  */
 public class ProjectsHeader extends HorizontalLayout{
 
-    private TextField searchBar;
+    private TextField searchProjectBar;
     private Button addProjectButton;
     private AddProjectWindow addProjectWindow;
     private ProjectsView projectsView;
@@ -18,7 +19,7 @@ public class ProjectsHeader extends HorizontalLayout{
     public ProjectsHeader(ProjectsView projectsView){
         this.projectsView=projectsView;
 
-        searchBar = new TextField();
+        searchProjectBar = new TextField();
         addProjectButton = new Button("Add");
 
 
@@ -26,9 +27,11 @@ public class ProjectsHeader extends HorizontalLayout{
     }
 
     private void build() {
+       // Grid.HeaderRow filterRow = grid.appendHeaderRow();
 
-        //searchBar.setWidth("100px");
-        addComponent(searchBar);
+        //searchProjectBar.setWidth("100px");
+        addComponent(searchProjectBar);
+       // searchProjectBar.setColumns(1000);
 
         //addProjectButton.setWidth("50px");
         addComponent(addProjectButton);
