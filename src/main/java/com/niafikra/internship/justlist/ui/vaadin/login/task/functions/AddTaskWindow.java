@@ -27,15 +27,12 @@ public class AddTaskWindow extends Window implements Button.ClickListener {
         saveTaskButton = new Button("Save");
         tasksService = TasksService.get();
         projectsDisplay = tasksDisplay.getTasksView().getTasksContent().getProjectsView().getProjectsDisplay();
-        //project = new Project();
 
         build();
 
     }
 
     private void build() {
-
-        //Window window = new Window("Add Task");
 
         setCaption("Add Task");
         setWidth("500px");
@@ -69,11 +66,8 @@ public class AddTaskWindow extends Window implements Button.ClickListener {
 
         if (result) {
 
-
-            //removeAllComponents();
             tasksDisplay.fetchTasks();
             close();
-
             //Notification.show("Successfully saved!!");
 
         }
@@ -83,7 +77,5 @@ public class AddTaskWindow extends Window implements Button.ClickListener {
         this.tasksDisplay = tasksDisplay;
     }
 
-//    public void setCurrentProject(Project currentProject) {
-//        this.currentProject = currentProject;
-//    }
+
 }

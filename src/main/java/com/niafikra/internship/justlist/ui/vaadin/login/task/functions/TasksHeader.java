@@ -26,9 +26,6 @@ public class TasksHeader extends HorizontalLayout{
         this.tasksView = tasksView;
         tasksDisplay = tasksView.getTasksDisplay();
 
-        //setTasksDisplay(tasksDisplay);
-
-       // tasksService = TasksService.get();
         build();
 
     }
@@ -97,22 +94,4 @@ public class TasksHeader extends HorizontalLayout{
 
     }
 
-
-
-
-//    public void setTasksDisplay(TasksDisplay tasksDisplay) {
-//        this.tasksDisplay = tasksDisplay;
-//    }
-//
-//    public TextField getSearchTaskBar() {
-//        return searchTaskBar;
-//    }
-//
-//    public Button getAddTaskButton() {
-//        return addTaskButton;
-//    }
-//
-//   public void setCurrentProject(Project currentProject) {
-//       this.currentProject = currentProject;
-    //}
 }

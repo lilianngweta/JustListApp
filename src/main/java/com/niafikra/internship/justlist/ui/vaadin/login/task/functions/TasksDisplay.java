@@ -5,9 +5,13 @@ import com.niafikra.internship.justlist.data.Task;
 import com.niafikra.internship.justlist.service.TasksService;
 import com.niafikra.internship.justlist.ui.vaadin.login.TasksView;
 import com.niafikra.internship.justlist.ui.vaadin.login.project.functions.ProjectsDisplay;
+import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItemContainer;
+import com.vaadin.data.util.GeneratedPropertyContainer;
+import com.vaadin.data.util.PropertyValueGenerator;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.renderers.ButtonRenderer;
 
 /**
  * Created by lilianngweta on 7/14/16.
@@ -19,20 +23,47 @@ public class TasksDisplay extends HorizontalLayout {
     private Project currentProject;
     private TasksView tasksView;
     private Grid grid;
-   // private ProjectsDisplay projectsDisplay;
 
     public TasksDisplay(TasksView tasksView){
 
-        this.tasksView = tasksView;
-
-        //projectsDisplay = new ProjectsDisplay(tasksView.getTasksContent().getProjectsView());
-
-        tasksService = TasksService.get();
-        container =
-                new BeanItemContainer<Task>(Task.class);
         setSizeFull();
 
-        grid = new Grid(container);
+        this.tasksView = tasksView;
+
+        tasksService = TasksService.get();
+        container = new BeanItemContainer<Task>(Task.class);
+
+        /**
+         * Generate button caption column
+         */
+        GeneratedPropertyContainer gpc = new GeneratedPropertyContainer(container);
+        gpc.addGeneratedProperty("delete",
+                new PropertyValueGenerator<String>() {
+
+                    @Override
+                    public String getValue(Item item, Object itemId,
+                                           Object propertyId) {
+                        return "Delete"; // The caption
+                    }
+
+                    @Override
+                    public Class<String> getType() {
+                        return String.class;
+                    }
+                });
+
+        /**
+         * Create a grid
+         */
+        grid = new Grid(gpc);
+
+        /**
+         * Render a button that deletes the data row (item)
+         */
+        grid.getColumn("delete")
+                .setRenderer(new ButtonRenderer(e -> // Java 8
+                        grid.getContainerDataSource()
+                                .removeItem(e.getItemId())));
 
         grid.removeColumn("id");
         grid.removeColumn("user");

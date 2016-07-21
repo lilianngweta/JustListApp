@@ -15,7 +15,6 @@ public class TasksView extends VerticalLayout {
     private TasksHeader tasksHeader;
     private TasksDisplay tasksDisplay;
     private TasksContent tasksContent;
-    //private AddTaskWindow addTaskWindow;
 
     public TasksView(TasksContent tasksContent) {
         this.tasksContent=tasksContent;
@@ -23,7 +22,6 @@ public class TasksView extends VerticalLayout {
         tasksDisplay = new TasksDisplay(this);
         tasksHeader = new TasksHeader(this);
 
-        //addTaskWindow = new AddTaskWindow(tasksDisplay);
         build();
     }
 
@@ -34,7 +32,6 @@ public class TasksView extends VerticalLayout {
         addComponent(tasksHeader);
         setComponentAlignment(tasksHeader, Alignment.TOP_CENTER);
         addComponent(tasksDisplay);
-        //setComponentAlignment(tasksPanel, Alignment.);
         setExpandRatio(tasksDisplay,5);
         setExpandRatio(tasksHeader,1);
 
@@ -53,7 +50,6 @@ public class TasksView extends VerticalLayout {
     }
 
    public void setCurrentProject(Project currentSelectedProject) {
-      //  addTaskWindow.setCurrentProject(currentSelectedProject);
        tasksDisplay.setCurrentProject(currentSelectedProject);
     }
 

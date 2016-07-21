@@ -20,7 +20,6 @@ public class AddProjectWindow extends Window implements Button.ClickListener {
         textField = new TextField();
         saveProjectButton = new Button("Save");
         projectService = ProjectService.get();
-        //project = new Project();
 
         build();
 
@@ -28,7 +27,6 @@ public class AddProjectWindow extends Window implements Button.ClickListener {
 
     private void build() {
 
-        //Window window = new Window("Add Project");
         setWidth("500px");
         setHeight("200px");
         VerticalLayout content = new VerticalLayout();
@@ -59,7 +57,6 @@ public class AddProjectWindow extends Window implements Button.ClickListener {
 
         if(result){
 
-            //removeAllComponents();
             projectsDisplay.fetchProjects();
             close();
             //Notification.show("Successfully saved!!");

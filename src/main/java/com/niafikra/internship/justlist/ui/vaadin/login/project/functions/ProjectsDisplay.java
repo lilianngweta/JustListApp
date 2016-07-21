@@ -10,6 +10,7 @@ import com.vaadin.data.util.GeneratedPropertyContainer;
 import com.vaadin.data.util.PropertyValueGenerator;
 import com.vaadin.event.SelectionEvent;
 import com.vaadin.shared.data.sort.SortDirection;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.renderers.ButtonRenderer;
@@ -19,7 +20,7 @@ import com.vaadin.ui.renderers.ButtonRenderer;
  */
 public class ProjectsDisplay extends HorizontalLayout {
 
-   // private static ProjectsView projectView;
+    // private static ProjectsView projectView;
     private ProjectService projectService;
     private BeanItemContainer<Project> container;
     private Project currentSelectedProject;
@@ -34,12 +35,45 @@ public class ProjectsDisplay extends HorizontalLayout {
         projectService = ProjectService.get();
         container = new BeanItemContainer<Project>(Project.class);
 
-        grid = new Grid(container);
+        /**
+         * Generate button caption column
+         */
+        GeneratedPropertyContainer gpc = new GeneratedPropertyContainer(container);
+
+        gpc.addGeneratedProperty("delete",
+                new PropertyValueGenerator<String>() {
+
+                    @Override
+                    public String getValue(Item item, Object itemId,
+                                           Object propertyId) {
+                        return "Delete"; // The caption
+                    }
+
+                    @Override
+                    public Class<String> getType() {
+                        return String.class;
+                    }
+                });
+
+
+
+        /**
+         * Create a grid
+         */
+        grid = new Grid(gpc);
+
+        /**
+         * Render a button that deletes the data row (item)
+         */
+        grid.getColumn("delete")
+                .setRenderer(new ButtonRenderer(e ->
+                        grid.getContainerDataSource()
+                                .removeItem(e.getItemId())));
+
         grid.removeColumn("id");
         grid.removeColumn("user");
         grid.addSelectionListener(new SelectionEvent.SelectionListener() {
 
-            //Detects the sel
             @Override
             public void select(SelectionEvent event) {
                 Object selected = ((Grid.SingleSelectionModel)
@@ -59,34 +93,6 @@ public class ProjectsDisplay extends HorizontalLayout {
         grid.sort("name", SortDirection.DESCENDING);
         grid.setWidth("100%");
         grid.setSizeFull();
-
-        // Generate button caption column
-        GeneratedPropertyContainer gpc =
-                new GeneratedPropertyContainer(container);
-        gpc.addGeneratedProperty("delete",
-                new PropertyValueGenerator<String>() {
-
-                    @Override
-                    public String getValue(Item item, Object itemId,
-                                           Object propertyId) {
-                        return "Delete"; // The caption
-                    }
-
-                    @Override
-                    public Class<String> getType() {
-                        return String.class;
-                    }
-                });
-
-// Create a grid
-        Grid grid = new Grid(gpc);
-
-// Render a button that deletes the data row (item)
-        grid.getColumn("delete")
-                .setRenderer(new ButtonRenderer(e -> // Java 8
-                        grid.getContainerDataSource()
-                                .removeItem(e.getItemId())));
-
 
     }
 
