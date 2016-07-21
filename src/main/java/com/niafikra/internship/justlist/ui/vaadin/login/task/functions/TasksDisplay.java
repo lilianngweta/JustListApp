@@ -18,6 +18,7 @@ public class TasksDisplay extends HorizontalLayout {
     private BeanItemContainer<Task> container;
     private Project currentProject;
     private TasksView tasksView;
+    private Grid grid;
    // private ProjectsDisplay projectsDisplay;
 
     public TasksDisplay(TasksView tasksView){
@@ -31,7 +32,7 @@ public class TasksDisplay extends HorizontalLayout {
                 new BeanItemContainer<Task>(Task.class);
         setSizeFull();
 
-        Grid grid = new Grid(container);
+        grid = new Grid(container);
 
         grid.removeColumn("id");
         grid.removeColumn("user");
@@ -57,5 +58,13 @@ public class TasksDisplay extends HorizontalLayout {
         this.currentProject = currentProject;
 
         fetchTasks();
+    }
+
+    public BeanItemContainer<Task> getContainer() {
+        return container;
+    }
+
+    public Grid getGrid() {
+        return grid;
     }
 }

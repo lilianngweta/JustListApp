@@ -21,17 +21,6 @@ public class ProjectsDisplay extends HorizontalLayout {
     private ProjectsView projectsView;
     private Grid grid;
 
-//    private static ProjectsDisplay projectsDisplay;
-//
-//    public static ProjectsDisplay get(){
-//
-//        if (projectsDisplay == null)
-//            projectsDisplay = new ProjectsDisplay(projectView);
-//
-//        return projectsDisplay;
-//    }
-
-
 
 
     public ProjectsDisplay(ProjectsView projectsView) {
@@ -80,5 +69,9 @@ public class ProjectsDisplay extends HorizontalLayout {
 
     public Grid getGrid() {
         return grid;
+    }
+
+    public BeanItemContainer<Project> getContainer() {
+        return container;
     }
 }
