@@ -4,10 +4,15 @@ import com.niafikra.internship.justlist.data.Project;
 import com.niafikra.internship.justlist.service.ProjectService;
 import com.niafikra.internship.justlist.service.UserService;
 import com.niafikra.internship.justlist.ui.vaadin.login.ProjectsView;
+import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItemContainer;
+import com.vaadin.data.util.GeneratedPropertyContainer;
+import com.vaadin.data.util.PropertyValueGenerator;
 import com.vaadin.event.SelectionEvent;
+import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.renderers.ButtonRenderer;
 
 /**
  * Created by lilianngweta on 7/15/16.
@@ -51,8 +56,37 @@ public class ProjectsDisplay extends HorizontalLayout {
 
         setSizeFull();
 
+        grid.sort("name", SortDirection.DESCENDING);
         grid.setWidth("100%");
         grid.setSizeFull();
+
+        // Generate button caption column
+        GeneratedPropertyContainer gpc =
+                new GeneratedPropertyContainer(container);
+        gpc.addGeneratedProperty("delete",
+                new PropertyValueGenerator<String>() {
+
+                    @Override
+                    public String getValue(Item item, Object itemId,
+                                           Object propertyId) {
+                        return "Delete"; // The caption
+                    }
+
+                    @Override
+                    public Class<String> getType() {
+                        return String.class;
+                    }
+                });
+
+// Create a grid
+        Grid grid = new Grid(gpc);
+
+// Render a button that deletes the data row (item)
+        grid.getColumn("delete")
+                .setRenderer(new ButtonRenderer(e -> // Java 8
+                        grid.getContainerDataSource()
+                                .removeItem(e.getItemId())));
+
 
     }
 

@@ -29,10 +29,13 @@ public class ProjectsHeader extends HorizontalLayout {
         projectsDisplay = projectsView.getProjectsDisplay();
 
 
+        searchProjectBar.setInputPrompt("Search project...");
+
         build();
     }
 
     private void build() {
+
 
         /**
          * On Change of text, filter the data of the grid
@@ -43,7 +46,7 @@ public class ProjectsHeader extends HorizontalLayout {
 
         //searchProjectBar.setWidth("100px");
         addComponent(searchProjectBar);
-        // searchProjectBar.setColumns(1000);
+
 
         addComponent(addProjectButton);
 

@@ -42,6 +42,8 @@ public class TasksHeader extends HorizontalLayout{
          */
         searchTaskBar = new TextField();
 
+        searchTaskBar.setInputPrompt("Search task by name...");
+
         /**
          * On Change of text, filter the data of the grid
          */
@@ -59,13 +61,6 @@ public class TasksHeader extends HorizontalLayout{
         addTaskButton.addClickListener(e ->{
 
             addTaskWindow = new AddTaskWindow(tasksView.getTasksDisplay());
-
-//
-//            String taskName= searchTaskBar.getValue();
-
-//            tasksService.save(taskName, currentProject);
-//            //removeAllComponents();
-//            tasksDisplay.fetchTasks();
 
         });
         addComponent(addTaskButton);
