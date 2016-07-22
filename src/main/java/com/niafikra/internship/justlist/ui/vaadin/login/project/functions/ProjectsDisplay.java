@@ -9,11 +9,8 @@ import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.data.util.GeneratedPropertyContainer;
 import com.vaadin.data.util.PropertyValueGenerator;
 import com.vaadin.event.SelectionEvent;
-import com.vaadin.shared.data.sort.SortDirection;
-import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Notification;
 import com.vaadin.ui.renderers.ButtonRenderer;
 
 /**
@@ -61,16 +58,10 @@ public class ProjectsDisplay extends HorizontalLayout {
         grid = new Grid(gpc);
 
         /*Render a button that deletes the data row (item)*/
-        grid.getColumn("delete").setRenderer(new ButtonRenderer(e ->
-                grid.getContainerDataSource().removeItem(e.getItemId())
-//                boolean result = projectService.delete(grid.getContainerDataSource().);
-//
-//                if(result) {
-//
-//                    Notification.show("Successfully Deleted");
-//                }
-
-            ));
+        grid.getColumn("delete").setRenderer(new ButtonRenderer(e -> {
+            Project project= (Project) e.getItemId();
+            projectService.delete(project);
+        }));
 
         grid.removeColumn("id");
         grid.removeColumn("user");
