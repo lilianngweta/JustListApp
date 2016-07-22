@@ -4,8 +4,10 @@ import com.niafikra.internship.justlist.data.Project;
 import com.niafikra.internship.justlist.data.User;
 import com.niafikra.internship.justlist.mysql.MySqlConnector;
 
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -132,24 +134,25 @@ public class ProjectService {
         return projectList;
     }
 
-    public boolean delete(Object id){
+    public boolean delete(Project project){
 
         PreparedStatement preparedStmt = null;
         try {
 
+
+            //TODO THE PROBLEM IS IF THE PROJECT HAS TASKS YOU WILL NEED TO DELETE THE TASKS TOO FIRST
             /**
              * create the mysql delete statement.
              */
             String query = "DELETE FROM Project where id = ?";
             preparedStmt = connection.prepareStatement(query);
-            preparedStmt.setObject(1,id);
+            preparedStmt.setLong(1,project.getId());
 
             /**
              * execute the preparedstatement
              */
-            preparedStmt.execute();
+            return preparedStmt.execute();
 
-            return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
