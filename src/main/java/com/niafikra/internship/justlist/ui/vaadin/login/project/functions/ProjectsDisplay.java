@@ -60,10 +60,12 @@ public class ProjectsDisplay extends HorizontalLayout {
          */
         grid = new Grid(gpc);
 
+        final int projectId = 0;
         /*Render a button that deletes the data row (item)*/
         grid.getColumn("delete").setRenderer(new ButtonRenderer(e ->
+               // e.getItemId();
                 grid.getContainerDataSource().removeItem(e.getItemId())
-//                boolean result = projectService.delete(grid.getContainerDataSource().);
+//                boolean result = projectService.delete(e.getItem);
 //
 //                if(result) {
 //

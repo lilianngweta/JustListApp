@@ -132,7 +132,7 @@ public class ProjectService {
         return projectList;
     }
 
-    public boolean delete(Long id){
+    public boolean delete(Object id){
 
         PreparedStatement preparedStmt = null;
         try {
@@ -142,7 +142,7 @@ public class ProjectService {
              */
             String query = "DELETE FROM Project where id = ?";
             preparedStmt = connection.prepareStatement(query);
-            preparedStmt.setLong(1,id);
+            preparedStmt.setObject(1,id);
 
             /**
              * execute the preparedstatement
