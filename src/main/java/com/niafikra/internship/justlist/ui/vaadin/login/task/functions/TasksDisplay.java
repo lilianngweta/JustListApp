@@ -60,10 +60,11 @@ public class TasksDisplay extends HorizontalLayout {
         /**
          * Render a button that deletes the data row (item)
          */
-        grid.getColumn("delete")
-                .setRenderer(new ButtonRenderer(e -> // Java 8
-                        grid.getContainerDataSource()
-                                .removeItem(e.getItemId())));
+        grid.getColumn("delete").setRenderer(new ButtonRenderer(e -> {
+            Task task = (Task) e.getItemId();
+            grid.getContainerDataSource().removeItem(e.getItemId());
+            tasksService.delete(task);
+        }));
 
         grid.removeColumn("id");
         grid.removeColumn("user");

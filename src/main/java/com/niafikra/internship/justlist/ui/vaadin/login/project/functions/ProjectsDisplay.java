@@ -60,6 +60,7 @@ public class ProjectsDisplay extends HorizontalLayout {
         /*Render a button that deletes the data row (item)*/
         grid.getColumn("delete").setRenderer(new ButtonRenderer(e -> {
             Project project= (Project) e.getItemId();
+            grid.getContainerDataSource().removeItem(e.getItemId());
             projectService.delete(project);
         }));
 

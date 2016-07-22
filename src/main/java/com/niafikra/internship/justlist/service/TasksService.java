@@ -144,6 +144,33 @@ public class TasksService {
     }
 
 
+    public boolean delete(Task task){
+
+        PreparedStatement preparedStmt = null;
+        try {
+            /**
+             * create the mysql delete statement.
+             */
+            String query = "DELETE FROM Task where id = ?";
+            preparedStmt = connection.prepareStatement(query);
+            preparedStmt.setLong(1,task.getId());
+
+            /**
+             * execute the preparedstatement
+             */
+            return preparedStmt.execute();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+
+
+
 }
 
 
