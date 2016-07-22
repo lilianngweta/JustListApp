@@ -13,6 +13,7 @@ import com.vaadin.shared.data.sort.SortDirection;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.renderers.ButtonRenderer;
 
 /**
@@ -26,8 +27,6 @@ public class ProjectsDisplay extends HorizontalLayout {
     private Project currentSelectedProject;
     private ProjectsView projectsView;
     private Grid grid;
-
-
 
     public ProjectsDisplay(ProjectsView projectsView) {
         this.projectsView = projectsView;
@@ -44,8 +43,7 @@ public class ProjectsDisplay extends HorizontalLayout {
                 new PropertyValueGenerator<String>() {
 
                     @Override
-                    public String getValue(Item item, Object itemId,
-                                           Object propertyId) {
+                    public String getValue(Item item, Object itemId, Object propertyId) {
                         return "Delete"; // The caption
                     }
 
@@ -62,13 +60,17 @@ public class ProjectsDisplay extends HorizontalLayout {
          */
         grid = new Grid(gpc);
 
-        /**
-         * Render a button that deletes the data row (item)
-         */
-        grid.getColumn("delete")
-                .setRenderer(new ButtonRenderer(e ->
-                        grid.getContainerDataSource()
-                                .removeItem(e.getItemId())));
+        /*Render a button that deletes the data row (item)*/
+        grid.getColumn("delete").setRenderer(new ButtonRenderer(e ->
+                grid.getContainerDataSource().removeItem(e.getItemId())
+//                boolean result = projectService.delete(grid.getContainerDataSource().);
+//
+//                if(result) {
+//
+//                    Notification.show("Successfully Deleted");
+//                }
+
+            ));
 
         grid.removeColumn("id");
         grid.removeColumn("user");
@@ -90,7 +92,7 @@ public class ProjectsDisplay extends HorizontalLayout {
 
         setSizeFull();
 
-        grid.sort("name", SortDirection.DESCENDING);
+        //grid.sort("name", SortDirection.DESCENDING);
         grid.setWidth("100%");
         grid.setSizeFull();
 

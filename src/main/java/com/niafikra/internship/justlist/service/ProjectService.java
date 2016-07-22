@@ -14,6 +14,9 @@ import java.util.List;
  */
 public class ProjectService {
 
+    /**
+     * create the mysql database connection
+     */
     private Connection connection = MySqlConnector.getConnection();
 
     private static ProjectService projectService;
@@ -37,6 +40,8 @@ public class ProjectService {
             statement.setString(1, projectName);
             statement.setLong(2, user.getId());
             statement.execute();
+
+            //connection.close();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -51,11 +56,13 @@ public class ProjectService {
             projectStatement.setLong(1, projectID);
             ResultSet result = projectStatement.executeQuery();
 
+           // connection.close();
+
+
             if (result.next()) {
                 Project project = new Project();
                 project.setId(result.getLong("id"));
                 project.setName(result.getString("name"));
-
                 return project;
             } else return null;
 
@@ -78,6 +85,7 @@ public class ProjectService {
 
             ResultSet resultSet= statement.executeQuery();
 
+
             while (resultSet.next()){
                 projects.add(
                         new Project(
@@ -88,6 +96,7 @@ public class ProjectService {
                 );
             }
 
+           // connection.close();
             return projects;
 
         } catch (SQLException e) {
@@ -114,12 +123,39 @@ public class ProjectService {
                 projectList.add(project);
 
             }
+            //connection.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         return projectList;
+    }
+
+    public boolean delete(Long id){
+
+        PreparedStatement preparedStmt = null;
+        try {
+
+            /**
+             * create the mysql delete statement.
+             */
+            String query = "DELETE FROM Project where id = ?";
+            preparedStmt = connection.prepareStatement(query);
+            preparedStmt.setLong(1,id);
+
+            /**
+             * execute the preparedstatement
+             */
+            preparedStmt.execute();
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
     }
 
 
