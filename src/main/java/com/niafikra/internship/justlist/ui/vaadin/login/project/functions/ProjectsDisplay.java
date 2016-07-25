@@ -32,7 +32,7 @@ public class ProjectsDisplay extends HorizontalLayout {
 
         projectService = ProjectService.get();
         container = new BeanItemContainer<Project>(Project.class);
-        tasksDisplay = projectsView.getTasksContent().getTasksView().getTasksDisplay();
+        //tasksDisplay = projectsView.getTasksContent().getTasksView().getTasksDisplay();
 
         /**
          * Generate button caption column
@@ -65,7 +65,7 @@ public class ProjectsDisplay extends HorizontalLayout {
             Project project= (Project) e.getItemId();
             grid.getContainerDataSource().removeItem(e.getItemId());
             projectService.delete(project);
-            tasksDisplay.getContainer().removeAllItems();
+           // tasksDisplay.getContainer().removeAllItems();
         }));
 
         grid.removeColumn("id");
