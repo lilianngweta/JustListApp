@@ -27,6 +27,7 @@ public class AddProjectWindow extends Window implements Button.ClickListener {
 
     private void build() {
 
+        setCaption("Add a Project");
         setWidth("500px");
         setHeight("200px");
         VerticalLayout content = new VerticalLayout();
