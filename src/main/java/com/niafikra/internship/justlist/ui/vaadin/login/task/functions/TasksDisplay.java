@@ -4,7 +4,6 @@ import com.niafikra.internship.justlist.data.Project;
 import com.niafikra.internship.justlist.data.Task;
 import com.niafikra.internship.justlist.service.TasksService;
 import com.niafikra.internship.justlist.ui.vaadin.login.TasksView;
-import com.niafikra.internship.justlist.ui.vaadin.login.project.functions.ProjectsDisplay;
 import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.data.util.GeneratedPropertyContainer;
@@ -62,8 +61,8 @@ public class TasksDisplay extends HorizontalLayout {
          */
         grid.getColumn("delete").setRenderer(new ButtonRenderer(e -> {
             Task task = (Task) e.getItemId();
-            grid.getContainerDataSource().removeItem(e.getItemId());
-            tasksService.delete(task);
+            if (tasksService.delete(task))
+                grid.getContainerDataSource().removeItem(e.getItemId());
         }));
 
         grid.removeColumn("id");
