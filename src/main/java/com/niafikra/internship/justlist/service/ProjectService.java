@@ -1,6 +1,7 @@
 package com.niafikra.internship.justlist.service;
 
 import com.niafikra.internship.justlist.data.Project;
+import com.niafikra.internship.justlist.data.Task;
 import com.niafikra.internship.justlist.data.User;
 import com.niafikra.internship.justlist.mysql.MySqlConnector;
 
@@ -58,7 +59,7 @@ public class ProjectService {
             projectStatement.setLong(1, projectID);
             ResultSet result = projectStatement.executeQuery();
 
-           // connection.close();
+            // connection.close();
 
 
             if (result.next()) {
@@ -83,12 +84,12 @@ public class ProjectService {
         List<Project> projects = new LinkedList<>();
         try {
             statement = connection.prepareStatement(query);
-            statement.setLong(1,user.getId());
+            statement.setLong(1, user.getId());
 
-            ResultSet resultSet= statement.executeQuery();
+            ResultSet resultSet = statement.executeQuery();
 
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 projects.add(
                         new Project(
                                 resultSet.getLong("id"),
@@ -98,7 +99,7 @@ public class ProjectService {
                 );
             }
 
-           // connection.close();
+            // connection.close();
             return projects;
 
         } catch (SQLException e) {
@@ -134,11 +135,14 @@ public class ProjectService {
         return projectList;
     }
 
-    public boolean delete(Project project){
+    public boolean delete(Project project) {
+
+        List<Task> tasks = TasksService.get().getTasks(project);
+        for (Task task : tasks)
+            TasksService.get().delete(task);
 
         PreparedStatement preparedStmt = null;
         try {
-
 
             //TODO THE PROBLEM IS IF THE PROJECT HAS TASKS YOU WILL NEED TO DELETE THE TASKS TOO FIRST
             /**
@@ -146,13 +150,13 @@ public class ProjectService {
              */
             String query = "DELETE FROM Project where id = ?";
             preparedStmt = connection.prepareStatement(query);
-            preparedStmt.setLong(1,project.getId());
+            preparedStmt.setLong(1, project.getId());
 
             /**
              * execute the preparedstatement
              */
-            return preparedStmt.execute();
-
+            preparedStmt.execute();
+            return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
