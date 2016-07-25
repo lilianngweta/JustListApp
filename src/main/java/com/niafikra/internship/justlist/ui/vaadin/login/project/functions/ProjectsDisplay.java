@@ -4,7 +4,6 @@ import com.niafikra.internship.justlist.data.Project;
 import com.niafikra.internship.justlist.service.ProjectService;
 import com.niafikra.internship.justlist.service.UserService;
 import com.niafikra.internship.justlist.ui.vaadin.login.ProjectsView;
-import com.niafikra.internship.justlist.ui.vaadin.login.task.functions.TasksDisplay;
 import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.data.util.GeneratedPropertyContainer;
@@ -25,14 +24,12 @@ public class ProjectsDisplay extends HorizontalLayout {
     private Project currentSelectedProject;
     private ProjectsView projectsView;
     private Grid grid;
-    private TasksDisplay tasksDisplay;
 
     public ProjectsDisplay(ProjectsView projectsView) {
         this.projectsView = projectsView;
 
         projectService = ProjectService.get();
         container = new BeanItemContainer<Project>(Project.class);
-        tasksDisplay = projectsView.getTasksContent().getTasksView().getTasksDisplay();
 
         /**
          * Generate button caption column
@@ -65,7 +62,7 @@ public class ProjectsDisplay extends HorizontalLayout {
             Project project= (Project) e.getItemId();
             grid.getContainerDataSource().removeItem(e.getItemId());
             projectService.delete(project);
-            tasksDisplay.getContainer().removeAllItems();
+            projectsView.getProjectsDisplay().getContainer().removeAllItems();
         }));
 
         grid.removeColumn("id");

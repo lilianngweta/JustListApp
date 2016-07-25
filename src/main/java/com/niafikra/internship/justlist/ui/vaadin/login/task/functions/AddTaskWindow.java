@@ -3,7 +3,6 @@ package com.niafikra.internship.justlist.ui.vaadin.login.task.functions;
 
 import com.niafikra.internship.justlist.data.Project;
 import com.niafikra.internship.justlist.service.TasksService;
-import com.niafikra.internship.justlist.ui.vaadin.login.project.functions.ProjectsDisplay;
 import com.vaadin.ui.*;
 
 /**
@@ -17,16 +16,13 @@ public class AddTaskWindow extends Window implements Button.ClickListener {
     private TasksService tasksService;
     private TasksDisplay tasksDisplay;
     private Project currentProject;
-    private ProjectsDisplay projectsDisplay;
 
     public AddTaskWindow(TasksDisplay tasksDisplay){
-
-        setTasksDisplay(tasksDisplay);
+        this.tasksDisplay = tasksDisplay;
 
         textField = new TextField();
         saveTaskButton = new Button("Save");
         tasksService = TasksService.get();
-        projectsDisplay = tasksDisplay.getTasksView().getTasksContent().getProjectsView().getProjectsDisplay();
 
         build();
 
@@ -62,7 +58,10 @@ public class AddTaskWindow extends Window implements Button.ClickListener {
     @Override
     public void buttonClick(Button.ClickEvent event) {
 
-        boolean result = tasksService.save(textField.getValue(), projectsDisplay.getCurrentSelectedProject());
+        boolean result = tasksService.save(
+                textField.getValue(),
+                tasksDisplay.getTasksView().getTasksContent().getProjectsView().getProjectsDisplay().getCurrentSelectedProject()
+        );
 
         if (result) {
 
@@ -71,10 +70,6 @@ public class AddTaskWindow extends Window implements Button.ClickListener {
             //Notification.show("Successfully saved!!");
 
         }
-    }
-
-    public void setTasksDisplay(TasksDisplay tasksDisplay) {
-        this.tasksDisplay = tasksDisplay;
     }
 
 
