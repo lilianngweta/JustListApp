@@ -62,7 +62,8 @@ public class ProjectsDisplay extends HorizontalLayout {
 
             if (projectService.delete(project)){
                 grid.getContainerDataSource().removeItem(project);
-                projectsView.getTasksContent().getTasksView().getTasksDisplay().getContainer().removeAllItems();
+                if(project.equals(currentSelectedProject))
+                    setCurrentSelectedProject(null);
             }
         }));
 
@@ -75,10 +76,7 @@ public class ProjectsDisplay extends HorizontalLayout {
                 Object selected = ((Grid.SingleSelectionModel)
                         grid.getSelectionModel()).getSelectedRow();
 
-                if (selected == null) return;
-
-                currentSelectedProject = (Project) selected;
-                projectsView.getTasksContent().getTasksView().setCurrentProject(currentSelectedProject);
+                setCurrentSelectedProject((Project) selected);
 
             }
         });
@@ -97,6 +95,11 @@ public class ProjectsDisplay extends HorizontalLayout {
         container.removeAllItems();
         container.addAll(projectService.getProjects(UserService.get().getCurrentSessionUser()));
 
+    }
+
+    public void setCurrentSelectedProject(Project currentSelectedProject) {
+        this.currentSelectedProject = currentSelectedProject;
+        projectsView.getTasksContent().getTasksView().setCurrentProject(currentSelectedProject);
     }
 
     public Project getCurrentSelectedProject() {

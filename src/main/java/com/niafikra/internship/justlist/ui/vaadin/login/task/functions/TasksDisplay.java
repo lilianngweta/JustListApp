@@ -23,7 +23,7 @@ public class TasksDisplay extends HorizontalLayout {
     private TasksView tasksView;
     private Grid grid;
 
-    public TasksDisplay(TasksView tasksView){
+    public TasksDisplay(TasksView tasksView) {
 
         setSizeFull();
 
@@ -75,9 +75,11 @@ public class TasksDisplay extends HorizontalLayout {
 
     }
 
-    public void fetchTasks(){
+    public void fetchTasks() {
         container.removeAllItems();
-        container.addAll(tasksService.getTasks(currentProject));
+
+        if (currentProject != null)
+            container.addAll(tasksService.getTasks(currentProject));
     }
 
     public TasksView getTasksView() {
