@@ -5,9 +5,11 @@ import com.niafikra.internship.justlist.data.Task;
 import com.niafikra.internship.justlist.mysql.MySqlConnector;
 import com.vaadin.ui.Notification;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class TasksService {
 
     }
 
-    public static TasksService get(){
+    public static TasksService get() {
 
         if (tasksService == null)
             tasksService = new TasksService();
@@ -43,8 +45,8 @@ public class TasksService {
 
             String query = "INSERT INTO Task (name, project_id) " + "VALUES (?,?)";
             statement = connection.prepareStatement(query);
-            statement.setString(1,task);
-            statement.setLong(2,currentProject.getId());
+            statement.setString(1, task);
+            statement.setLong(2, currentProject.getId());
             statement.execute();
             return true;
 
@@ -57,14 +59,14 @@ public class TasksService {
 
     }
 
-    public Task getTask(Long taskID){
+    public Task getTask(Long taskID) {
 
         try {
-            PreparedStatement taskStatement = connection.prepareStatement("SELECT * FROM Task WHERE id ='"+taskID+"'");
+            PreparedStatement taskStatement = connection.prepareStatement("SELECT * FROM Task WHERE id ='" + taskID + "'");
 
             ResultSet result = taskStatement.executeQuery();
 
-            while (result.next()){
+            while (result.next()) {
                 task = new Task();
                 task.setName(result.getString("name"));
             }
@@ -90,12 +92,12 @@ public class TasksService {
 
             ResultSet resultSet = statement.executeQuery();
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
 
                 tasks.add(new Task(
-                        resultSet.getLong("id"),
-                        resultSet.getString("name"),
-                        ProjectService.get().getProject(resultSet.getLong("project_id")))
+                                resultSet.getLong("id"),
+                                resultSet.getString("name"),
+                                ProjectService.get().getProject(resultSet.getLong("project_id")))
                 );
 
             }
@@ -134,17 +136,16 @@ public class TasksService {
             }
 
 
-
         } catch (SQLException e) {
             Notification.show(e.getMessage());
             e.printStackTrace();
         }
-       // Notification.show(taskList.toString());
+        // Notification.show(taskList.toString());
         return taskList;
     }
 
 
-    public boolean delete(Task task){
+    public boolean delete(Task task) {
 
         PreparedStatement preparedStmt = null;
         try {
@@ -153,22 +154,19 @@ public class TasksService {
              */
             String query = "DELETE FROM Task where id = ?";
             preparedStmt = connection.prepareStatement(query);
-            preparedStmt.setLong(1,task.getId());
+            preparedStmt.setLong(1, task.getId());
 
             /**
              * execute the preparedstatement
              */
-            return preparedStmt.execute();
-
-
+            preparedStmt.execute();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
 
     }
-
-
 
 
 }

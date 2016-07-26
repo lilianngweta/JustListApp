@@ -14,9 +14,10 @@ public class AddProjectWindow extends Window implements Button.ClickListener {
     private ProjectService projectService;
     private ProjectsDisplay projectsDisplay;
 
-    public AddProjectWindow(ProjectsDisplay projectsDisplay){
+    public AddProjectWindow(ProjectsDisplay projectsDisplay) {
 
-        setProjectsDisplay(projectsDisplay);
+        this.projectsDisplay = projectsDisplay;
+
         textField = new TextField();
         saveProjectButton = new Button("Save");
         projectService = ProjectService.get();
@@ -36,7 +37,7 @@ public class AddProjectWindow extends Window implements Button.ClickListener {
 
         content.addComponent(textField);
         textField.setWidth("300px");
-        content.setComponentAlignment(textField,Alignment.MIDDLE_CENTER);
+        content.setComponentAlignment(textField, Alignment.MIDDLE_CENTER);
 
 
         saveProjectButton.addClickListener(this);
@@ -56,16 +57,12 @@ public class AddProjectWindow extends Window implements Button.ClickListener {
 
         boolean result = projectService.save(textField.getValue(), UserService.get().getCurrentSessionUser());
 
-        if(result){
+        if (result) {
 
             projectsDisplay.fetchProjects();
             close();
             //Notification.show("Successfully saved!!");
         }
 
-    }
-
-    public void setProjectsDisplay(ProjectsDisplay projectsDisplay) {
-        this.projectsDisplay = projectsDisplay;
     }
 }
