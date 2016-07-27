@@ -8,6 +8,8 @@ import com.vaadin.data.Item;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.data.util.GeneratedPropertyContainer;
 import com.vaadin.data.util.PropertyValueGenerator;
+import com.vaadin.shared.ui.checkbox.CheckBoxServerRpc;
+import com.vaadin.ui.CheckBox;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.renderers.ButtonRenderer;
@@ -51,6 +53,27 @@ public class TasksDisplay extends HorizontalLayout {
                     }
                 });
 
+
+//        /* Generate checkbox caption column*/
+//        GeneratedPropertyContainer gpc1 =
+//                new GeneratedPropertyContainer(gpc);
+//        gpc.addGeneratedProperty("checkbox",
+//                new PropertyValueGenerator<String>() {
+//
+//                    @Override
+//                    public String getValue(Item item, Object itemId,
+//                                           Object propertyId) {
+//                        return "CheckBox"; // The caption
+//                    }
+//
+//                    @Override
+//                    public Class<String> getType() {
+//                        return String.class;
+//                    }
+//                });
+
+
+
         /**
          * Create a grid
          */
@@ -64,6 +87,17 @@ public class TasksDisplay extends HorizontalLayout {
             if (tasksService.delete(task))
                 grid.getContainerDataSource().removeItem(e.getItemId());
         }));
+
+//        grid.getColumn("checkbox").setRenderer(new CheckboxRenderer(e -> {
+//
+//                grid.getContainerDataSource().s;
+//        }));
+
+        grid.setSelectionMode(Grid.SelectionMode.MULTI);
+
+        //Grid.MultiSelectionModel selection = (Grid.MultiSelectionModel) grid.getSelectionModel();
+
+        //selection.setSelected(grid.getContainerDataSource().);
 
         grid.removeColumn("id");
         grid.removeColumn("user");

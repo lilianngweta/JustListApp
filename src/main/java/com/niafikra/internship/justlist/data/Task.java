@@ -9,12 +9,13 @@ public class Task {
     private Long id;
     private String name;
     private Project project;
+    private boolean completed;
 
     public Task() {
 
     }
 
-    public Task(Long id, String name, Project project) {
+    public Task(Long id, String name, Project project, Boolean completed) {
 
         this.id = id;
         this.name = name;
@@ -48,5 +49,13 @@ public class Task {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }

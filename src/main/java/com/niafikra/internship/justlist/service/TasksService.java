@@ -43,10 +43,11 @@ public class TasksService {
 
         try {
 
-            String query = "INSERT INTO Task (name, project_id) " + "VALUES (?,?)";
+            String query = "INSERT INTO Task (name, project_id,completed )" + "VALUES (?,?,?)";
             statement = connection.prepareStatement(query);
             statement.setString(1, task);
             statement.setLong(2, currentProject.getId());
+            statement.setBoolean(3,false);
             statement.execute();
             return true;
 
@@ -69,6 +70,7 @@ public class TasksService {
             while (result.next()) {
                 task = new Task();
                 task.setName(result.getString("name"));
+                task.setCompleted(result.getBoolean("completed"));
             }
 
         } catch (SQLException e) {
@@ -97,7 +99,8 @@ public class TasksService {
                 tasks.add(new Task(
                                 resultSet.getLong("id"),
                                 resultSet.getString("name"),
-                                ProjectService.get().getProject(resultSet.getLong("project_id")))
+                                ProjectService.get().getProject(resultSet.getLong("project_id")),
+                                 resultSet.getBoolean("completed"))
                 );
 
             }
@@ -130,6 +133,7 @@ public class TasksService {
 
                 task = new Task();
                 task.setName(result.getString("name"));
+                task.setCompleted(result.getBoolean("completed"));
 
                 taskList.add(task);
 
