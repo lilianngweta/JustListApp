@@ -67,8 +67,8 @@ public class TasksDisplay extends VerticalLayout {
 
         //selection.setSelected(grid.getContainerDataSource().);
 
-        grid.getColumn("name").setExpandRatio(1);
-        grid.getColumn("delete").setWidth(100);
+//        grid.getColumn("name").setExpandRatio(1);
+//        grid.getColumn("delete").setWidth(100);
         grid.removeColumn("id");
         grid.removeColumn("user");
         grid.removeColumn("project");

@@ -144,7 +144,6 @@ public class ProjectService {
         PreparedStatement preparedStmt = null;
         try {
 
-            //TODO THE PROBLEM IS IF THE PROJECT HAS TASKS YOU WILL NEED TO DELETE THE TASKS TOO FIRST
             /**
              * create the mysql delete statement.
              */
