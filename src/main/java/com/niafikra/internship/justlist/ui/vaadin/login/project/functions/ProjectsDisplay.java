@@ -5,15 +5,17 @@ import com.niafikra.internship.justlist.service.ProjectService;
 import com.niafikra.internship.justlist.service.UserService;
 import com.niafikra.internship.justlist.ui.vaadin.login.ProjectsView;
 import com.vaadin.data.util.BeanItemContainer;
-import com.vaadin.data.util.GeneratedPropertyContainer;
-import com.vaadin.event.SelectionEvent;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.VerticalLayout;
+
+import java.util.Collection;
 
 /**
  * Created by lilianngweta on 7/15/16.
  */
-public class ProjectsDisplay extends HorizontalLayout {
+public class ProjectsDisplay extends VerticalLayout {
 
     // private static ProjectsView projectView;
     private ProjectService projectService;
@@ -28,43 +30,58 @@ public class ProjectsDisplay extends HorizontalLayout {
         projectService = ProjectService.get();
         container = new BeanItemContainer<Project>(Project.class);
 
-        /**
-         * Generate button caption column
-         */
-        GeneratedPropertyContainer gpc = new GeneratedPropertyContainer(container);
-
-
+        setSizeFull();
+        setSpacing(true);
         /**
          * Create a grid
          */
-        grid = new Grid(gpc);
+        createProjectsActions();
+        createProjectGrid();
+    }
 
+    private void createProjectsActions() {
+        HorizontalLayout actions = new HorizontalLayout();
+        addComponent(actions);
+        Button deleteButton = new Button("Delete");
+        deleteButton.addClickListener(event -> {
+            Collection selectedProjectIDs= grid.getSelectedRows();
+            for (Object selectedTaskID : selectedProjectIDs)
+                projectService.delete((Project) selectedTaskID);
 
-        grid.removeColumn("id");
-        grid.removeColumn("user");
-        grid.addSelectionListener(new SelectionEvent.SelectionListener() {
+            fetchProjects();
 
-            @Override
-            public void select(SelectionEvent event) {
-                Object selected = ((Grid.SingleSelectionModel)
-                        grid.getSelectionModel()).getSelectedRow();
-
-                setCurrentSelectedProject((Project) selected);
-
-            }
+            if(selectedProjectIDs.contains(currentSelectedProject))
+                setCurrentSelectedProject(null);
         });
-        addComponent(grid);
+        actions.addComponent(deleteButton);
 
-        setSizeFull();
+        Button completeButton = new Button("Archive");
+        completeButton.addClickListener(event -> {
+            for (Object selectedTaskID : grid.getSelectedRows())
+                projectService.archive((Project)selectedTaskID);
 
-        //grid.sort("name", SortDirection.DESCENDING);
+            fetchProjects();
+        });
+        actions.addComponent(completeButton);
+    }
+
+    private void createProjectGrid() {
+        grid = new Grid(container);
+        grid.setSelectionMode(Grid.SelectionMode.MULTI);
         grid.setWidth("100%");
         grid.setSizeFull();
+        grid.removeColumn("id");
+        grid.removeColumn("user");
+        addComponent(grid);
+        setExpandRatio(grid, 1);
 
+        grid.addItemClickListener(event -> {
+            Project project = (Project) event.getItemId();
+            setCurrentSelectedProject(project);
+        });
     }
 
     public void fetchProjects() {
-
         container.removeAllItems();
         container.addAll(projectService.getProjects(UserService.get().getCurrentSessionUser()));
 

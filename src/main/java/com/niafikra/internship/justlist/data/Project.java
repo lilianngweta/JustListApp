@@ -6,6 +6,7 @@ package com.niafikra.internship.justlist.data;
 public class Project {
 
     private String name;
+    private boolean archived;
     private Long id;
     private User user;
 
@@ -40,5 +41,32 @@ public class Project {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public boolean isArchived() {
+        return archived;
+    }
+
+    public void setArchived(boolean archived) {
+        this.archived = archived;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Project project = (Project) o;
+
+        if (id != null ? !id.equals(project.id) : project.id != null) return false;
+        return !(name != null ? !name.equals(project.name) : project.name != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
     }
 }
