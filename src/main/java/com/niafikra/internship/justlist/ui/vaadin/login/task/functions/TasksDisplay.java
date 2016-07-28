@@ -28,6 +28,7 @@ public class TasksDisplay extends VerticalLayout {
 
 
         setSizeFull();
+        setSpacing(true);
         createTasksActions();
         createTasksGrid();
     }
