@@ -99,6 +99,8 @@ public class TasksDisplay extends HorizontalLayout {
 
         //selection.setSelected(grid.getContainerDataSource().);
 
+        grid.getColumn("name").setExpandRatio(1);
+        grid.getColumn("delete").setWidth(100);
         grid.removeColumn("id");
         grid.removeColumn("user");
         grid.removeColumn("project");
