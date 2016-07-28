@@ -37,6 +37,7 @@ public class ProjectsHeader extends HorizontalLayout {
     private void build() {
 
 
+        setSizeFull();
         /**
          * On Change of text, filter the data of the grid
          */
@@ -48,9 +49,12 @@ public class ProjectsHeader extends HorizontalLayout {
         addComponent(searchProjectBar);
 
 
+        //addProjectButton.setWidth("100px");
         addComponent(addProjectButton);
 
-        setSpacing(true);
+        searchProjectBar.setWidth("100%");
+        setExpandRatio(searchProjectBar,1);
+        setSpacing(false);
 
         addProjectButton.addClickListener(event -> {
             addProjectWindow = new AddProjectWindow(projectsView.getProjectsDisplay());
