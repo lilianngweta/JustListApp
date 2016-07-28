@@ -47,7 +47,7 @@ public class TasksService {
             statement = connection.prepareStatement(query);
             statement.setString(1, task);
             statement.setLong(2, currentProject.getId());
-            statement.setBoolean(3,false);
+            statement.setBoolean(3, false);
             statement.execute();
             return true;
 
@@ -173,6 +173,9 @@ public class TasksService {
     }
 
 
+    public boolean complete(Task task) {
+        return false;
+    }
 }
 
 
