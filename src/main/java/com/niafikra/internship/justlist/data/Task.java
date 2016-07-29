@@ -20,6 +20,7 @@ public class Task {
         this.id = id;
         this.name = name;
         this.project = project;
+        this.completed = completed;
     }
 
     public User getUser() {

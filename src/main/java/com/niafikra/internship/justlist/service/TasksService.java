@@ -174,7 +174,22 @@ public class TasksService {
 
 
     public boolean complete(Task task) {
-        return false;
+
+       // task.setCompleted(true);
+
+        String query = "UPDATE Task SET  completed = true WHERE id = '"+task.getId()+"'" ;
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.execute();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+
     }
 }
 

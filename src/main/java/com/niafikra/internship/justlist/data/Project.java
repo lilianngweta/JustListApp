@@ -9,11 +9,13 @@ public class Project {
     private boolean archived;
     private Long id;
     private User user;
+    //private boolean archived;
 
-    public Project(Long id, String name, User user) {
+    public Project(Long id, String name, User user, boolean archived) {
         this.id = id;
         this.name = name;
         this.user = user;
+        this.archived = archived;
     }
 
     public Project(){

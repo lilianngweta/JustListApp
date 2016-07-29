@@ -32,7 +32,7 @@ public class TasksView extends VerticalLayout {
         addComponent(tasksHeader);
         setComponentAlignment(tasksHeader, Alignment.TOP_CENTER);
         addComponent(tasksDisplay);
-        setExpandRatio(tasksDisplay,5);
+        setExpandRatio(tasksDisplay,10);
         setExpandRatio(tasksHeader,1);
 
     }

@@ -38,10 +38,11 @@ public class ProjectService {
         PreparedStatement statement = null;
 
         try {
-            String query = "INSERT INTO Project (name,user_id) VALUES (?,?)";
+            String query = "INSERT INTO Project (name,user_id,archived) VALUES (?,?,?)";
             statement = connection.prepareStatement(query);
             statement.setString(1, projectName);
             statement.setLong(2, user.getId());
+            statement.setBoolean(3,false);
             statement.execute();
 
             //connection.close();
@@ -66,6 +67,7 @@ public class ProjectService {
                 Project project = new Project();
                 project.setId(result.getLong("id"));
                 project.setName(result.getString("name"));
+                project.setArchived(result.getBoolean("archived"));
                 return project;
             } else return null;
 
@@ -94,9 +96,8 @@ public class ProjectService {
                         new Project(
                                 resultSet.getLong("id"),
                                 resultSet.getString("name"),
-                                UserService.get().getUser(resultSet.getLong("user_id"))
-                        )
-                );
+                                UserService.get().getUser(resultSet.getLong("user_id")),
+                                        resultSet.getBoolean("archived")));
             }
 
             // connection.close();
@@ -122,6 +123,7 @@ public class ProjectService {
                 Project project = new Project();
                 project.setId(resultSet.getLong("id"));
                 project.setName(resultSet.getString("name"));
+                project.setArchived(resultSet.getBoolean("archived"));
 
                 projectList.add(project);
 
@@ -165,7 +167,19 @@ public class ProjectService {
     }
 
 
-    public void archive(Project project) {
+    public boolean archive(Project project) {
+
+        String query = "UPDATE Project SET  archived = true WHERE id = '"+project.getId()+"'" ;
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.execute();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return true;
+        }
 
     }
 }

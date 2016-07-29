@@ -33,7 +33,7 @@ public class ProjectsView extends VerticalLayout {
         addComponent(projectsHeader);
         setComponentAlignment(projectsHeader, Alignment.TOP_CENTER);
         addComponent(projectsDisplay);
-        setExpandRatio(projectsDisplay, 5);
+        setExpandRatio(projectsDisplay, 10);
         setExpandRatio(projectsHeader, 1);
 
 

@@ -38,8 +38,11 @@ public class TasksDisplay extends VerticalLayout {
         addComponent(actions);
         Button deleteButton = new Button("Delete");
         deleteButton.addClickListener(event -> {
-            for (Object selectedTaskID : grid.getSelectedRows())
+            for (Object selectedTaskID : grid.getSelectedRows()){
                 tasksService.delete((Task) selectedTaskID);
+                grid.deselect(selectedTaskID);
+            }
+
 
             fetchTasks();
         });
@@ -47,9 +50,10 @@ public class TasksDisplay extends VerticalLayout {
 
         Button completeButton = new Button("Complete");
         completeButton.addClickListener(event -> {
-            for (Object selectedTaskID : grid.getSelectedRows())
+            for (Object selectedTaskID : grid.getSelectedRows()) {
                 tasksService.complete((Task) selectedTaskID);
-
+                grid.deselect(selectedTaskID);
+            }
             fetchTasks();
         });
         actions.addComponent(completeButton);

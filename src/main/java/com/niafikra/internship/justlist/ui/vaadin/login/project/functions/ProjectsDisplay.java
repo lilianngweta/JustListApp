@@ -45,8 +45,10 @@ public class ProjectsDisplay extends VerticalLayout {
         Button deleteButton = new Button("Delete");
         deleteButton.addClickListener(event -> {
             Collection selectedProjectIDs= grid.getSelectedRows();
-            for (Object selectedTaskID : selectedProjectIDs)
-                projectService.delete((Project) selectedTaskID);
+            for (Object selectedProjectID : selectedProjectIDs) {
+                projectService.delete((Project) selectedProjectID);
+                grid.deselect(selectedProjectID);
+            }
 
             fetchProjects();
 
@@ -57,9 +59,10 @@ public class ProjectsDisplay extends VerticalLayout {
 
         Button completeButton = new Button("Archive");
         completeButton.addClickListener(event -> {
-            for (Object selectedTaskID : grid.getSelectedRows())
-                projectService.archive((Project)selectedTaskID);
-
+            for (Object selectedProjectID : grid.getSelectedRows()) {
+                projectService.archive((Project) selectedProjectID);
+                grid.deselect(selectedProjectID);
+            }
             fetchProjects();
         });
         actions.addComponent(completeButton);
