@@ -24,7 +24,7 @@ public class TasksHeader extends HorizontalLayout{
 
         this.tasksView = tasksView;
         tasksDisplay = tasksView.getTasksDisplay();
-
+        tasksService = TasksService.get();
         //build();
         //setMargin(true);
         createTasksActions();
