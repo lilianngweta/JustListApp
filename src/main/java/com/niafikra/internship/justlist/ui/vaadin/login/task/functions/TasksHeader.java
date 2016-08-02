@@ -4,9 +4,9 @@ import com.niafikra.internship.justlist.data.Project;
 import com.niafikra.internship.justlist.data.Task;
 import com.niafikra.internship.justlist.service.TasksService;
 import com.niafikra.internship.justlist.ui.vaadin.login.TasksView;
-import com.vaadin.data.util.filter.SimpleStringFilter;
-import com.vaadin.event.FieldEvents;
-import com.vaadin.ui.*;
+import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Button;
+import com.vaadin.ui.HorizontalLayout;
 
 /**
  * Created by lilianngweta on 7/13/16.
@@ -25,8 +25,7 @@ public class TasksHeader extends HorizontalLayout{
         this.tasksView = tasksView;
         tasksDisplay = tasksView.getTasksDisplay();
 
-        //build();
-        //setMargin(true);
+        tasksService = TasksService.get();
         createTasksActions();
 
     }

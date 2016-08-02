@@ -35,7 +35,6 @@ public class TasksDisplay extends VerticalLayout {
     }
 
 
-
     private void createTasksGrid() {
         container = new BeanItemContainer<Task>(Task.class);
 
@@ -44,6 +43,13 @@ public class TasksDisplay extends VerticalLayout {
          */
         grid = new Grid(container);
         grid.setSelectionMode(Grid.SelectionMode.MULTI);
+        grid.setRowStyleGenerator(new Grid.RowStyleGenerator() {
+            @Override
+            public String getStyle(Grid.RowReference row) {
+                Task task = (Task) row.getItemId();
+                return task.isCompleted() ? "task-completed" : "task-not-completed";
+            }
+        });
 
         //Grid.MultiSelectionModel selection = (Grid.MultiSelectionModel) grid.getSelectionModel();
 
@@ -60,7 +66,6 @@ public class TasksDisplay extends VerticalLayout {
         grid.setSizeFull();
 
     }
-
 
 
     private void build() {
@@ -125,7 +130,6 @@ public class TasksDisplay extends VerticalLayout {
         };
 
     }
-
 
 
     public void fetchTasks() {

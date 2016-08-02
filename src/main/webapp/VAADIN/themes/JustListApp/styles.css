@@ -12805,3 +12805,12 @@ div.v-layout.v-horizontal.v-widget {
 .JustListApp .backColorPurple {
 	background-color: rosybrown;
 }
+
+.task-not-completed {
+	color: black;
+	font-weight: bold;
+}
+
+.task-completed {
+	color: grey;
+}

@@ -28,7 +28,7 @@ public class MySqlConnector {
             {
                 if(conn==null) {
                     loadDriver();
-                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/todos?user=root&password=DO54LIMA");
+                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/todos?user=root&password=gr8stuff");
                 }
 
 
