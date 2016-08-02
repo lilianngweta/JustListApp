@@ -5,21 +5,22 @@ import com.niafikra.internship.justlist.data.Task;
 import com.niafikra.internship.justlist.service.TasksService;
 import com.niafikra.internship.justlist.ui.vaadin.login.TasksView;
 import com.vaadin.data.util.BeanItemContainer;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Grid;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.data.util.filter.SimpleStringFilter;
+import com.vaadin.event.FieldEvents;
+import com.vaadin.ui.*;
 
 /**
  * Created by lilianngweta on 7/14/16.
  */
 public class TasksDisplay extends VerticalLayout {
 
+    private TextField searchTaskBar;
     private TasksService tasksService;
     private BeanItemContainer<Task> container;
     private Project currentProject;
     private TasksView tasksView;
     private Grid grid;
+    //private Button addTaskButton;
 
     public TasksDisplay(TasksView tasksView) {
 
@@ -28,36 +29,12 @@ public class TasksDisplay extends VerticalLayout {
 
 
         setSizeFull();
-        setSpacing(true);
-        createTasksActions();
+        setSpacing(false);
+        build();
         createTasksGrid();
     }
 
-    private void createTasksActions() {
-        HorizontalLayout actions = new HorizontalLayout();
-        addComponent(actions);
-        Button deleteButton = new Button("Delete");
-        deleteButton.addClickListener(event -> {
-            for (Object selectedTaskID : grid.getSelectedRows()){
-                tasksService.delete((Task) selectedTaskID);
-                grid.deselect(selectedTaskID);
-            }
 
-
-            fetchTasks();
-        });
-        actions.addComponent(deleteButton);
-
-        Button completeButton = new Button("Complete");
-        completeButton.addClickListener(event -> {
-            for (Object selectedTaskID : grid.getSelectedRows()) {
-                tasksService.complete((Task) selectedTaskID);
-                grid.deselect(selectedTaskID);
-            }
-            fetchTasks();
-        });
-        actions.addComponent(completeButton);
-    }
 
     private void createTasksGrid() {
         container = new BeanItemContainer<Task>(Task.class);
@@ -83,6 +60,73 @@ public class TasksDisplay extends VerticalLayout {
         grid.setSizeFull();
 
     }
+
+
+
+    private void build() {
+
+        setSizeFull();
+        HorizontalLayout searchTask = new HorizontalLayout();
+        addComponent(searchTask);
+        searchTask.setWidth("100%");
+
+        /**
+         *  An input field to use for filter
+         */
+        searchTaskBar = new TextField();
+
+        searchTaskBar.setInputPrompt("Search task by name...");
+
+        /**
+         * On Change of text, filter the data of the grid
+         */
+        searchTaskBar.addTextChangeListener(getTasksListener());
+        searchTaskBar.setImmediate(true);
+
+        searchTaskBar.setWidth("100%");
+        addComponent(searchTaskBar);
+        setComponentAlignment(searchTaskBar, Alignment.TOP_CENTER);
+        //setExpandRatio(searchTaskBar,1);
+
+        searchTask.addComponent(searchTaskBar);
+
+        //addComponent(userService);
+
+//        addComponent(addTaskButton);
+//        setComponentAlignment(addTaskButton, Alignment.TOP_CENTER);
+
+    }
+
+    /**
+     * Returns the TextChangeListener that gets triggered
+     *
+     * @return
+     */
+
+    private FieldEvents.TextChangeListener getTasksListener() {
+        return new FieldEvents.TextChangeListener() {
+
+            @Override
+            public void textChange(FieldEvents.TextChangeEvent event) {
+                String newValue = (String) event.getText();
+
+                /**
+                 * This removes the previous filter that was used to filter the container
+                 */
+                container.removeContainerFilters("name");
+
+                if (null != newValue && !newValue.isEmpty()) {
+                    //Set new filter for the "name" column
+                    container.addContainerFilter(new SimpleStringFilter(
+                            "name", newValue, true, false));
+                }
+                grid.recalculateColumnWidths();
+            }
+        };
+
+    }
+
+
 
     public void fetchTasks() {
         container.removeAllItems();

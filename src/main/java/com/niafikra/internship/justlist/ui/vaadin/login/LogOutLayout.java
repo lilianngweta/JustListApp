@@ -30,7 +30,7 @@ public class LogOutLayout extends HorizontalLayout{
                     }
                 });
         button.setDisableOnClick(false);
-        button.setWidth("200px");
+        button.setWidth("180px");
         addComponent(button);
         setComponentAlignment(button, Alignment.MIDDLE_RIGHT);
     }

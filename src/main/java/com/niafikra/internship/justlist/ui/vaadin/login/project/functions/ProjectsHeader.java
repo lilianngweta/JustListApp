@@ -1,92 +1,76 @@
 package com.niafikra.internship.justlist.ui.vaadin.login.project.functions;
+import com.niafikra.internship.justlist.data.Project;
+import com.niafikra.internship.justlist.service.ProjectService;
+import com.niafikra.internship.justlist.service.UserService;
 import com.niafikra.internship.justlist.ui.vaadin.login.ProjectsView;
 import com.vaadin.data.util.filter.SimpleStringFilter;
 import com.vaadin.event.FieldEvents;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.TextField;
+
+import java.util.Collection;
 
 /**
  * Created by lilianngweta on 7/11/16.
  */
 public class ProjectsHeader extends HorizontalLayout {
 
-    private TextField searchProjectBar;
-    private Button addProjectButton;
-    private AddProjectWindow addProjectWindow;
     private ProjectsView projectsView;
-    private ProjectsDisplay projectsDisplay;
+    private ProjectService projectService;
+    private AddProjectWindow addProjectWindow;
+
 
     public ProjectsHeader(ProjectsView projectsView) {
         this.projectsView = projectsView;
+        projectService = ProjectService.get();
 
-        /**
-         *  An input field to use for filter
-         */
-        searchProjectBar = new TextField();
-
-        addProjectButton = new Button("Add");
-        projectsDisplay = projectsView.getProjectsDisplay();
-
-
-        searchProjectBar.setInputPrompt("Search project...");
-
-        build();
+        createProjectsActions();
     }
 
-    private void build() {
+    private void createProjectsActions() {
+        //HorizontalLayout actions = new HorizontalLayout();
+        //addComponent(actions);
+        Button deleteButton = new Button("Delete");
+        deleteButton.addClickListener(event -> {
+            Collection selectedProjectIDs= projectsView.getProjectsDisplay().getGrid().getSelectedRows();
+            for (Object selectedProjectID : selectedProjectIDs) {
+                projectService.delete((Project) selectedProjectID);
+                projectsView.getProjectsDisplay().getGrid().deselect(selectedProjectID);
+            }
 
+            projectsView.getProjectsDisplay().fetchProjects();
 
-        setSizeFull();
-        /**
-         * On Change of text, filter the data of the grid
-         */
-        searchProjectBar.addTextChangeListener(getProjectsListener());
+            if(selectedProjectIDs.contains(projectsView.getProjectsDisplay().getCurrentSelectedProject()))
+                projectsView.getProjectsDisplay().setCurrentSelectedProject(null);
+        });
+        addComponent(deleteButton);
 
-        searchProjectBar.setImmediate(true);
+        Button completeButton = new Button("Archive");
+        completeButton.addClickListener(event -> {
+            Collection selectedProjectIDs= projectsView.getProjectsDisplay().getGrid().getSelectedRows();
+            for (Object selectedProjectID : selectedProjectIDs) {
+                projectService.archive((Project) selectedProjectID);
+                projectsView.getProjectsDisplay().getGrid().deselect(selectedProjectID);
+                projectsView.getProjectsDisplay().getGrid().getRowStyleGenerator();
+            }
+            projectsView.getProjectsDisplay().fetchProjects();
+        });
+        addComponent(completeButton);
 
-        //searchProjectBar.setWidth("100px");
-        addComponent(searchProjectBar);
-
-
-        //addProjectButton.setWidth("100px");
-        addComponent(addProjectButton);
-
-        searchProjectBar.setWidth("100%");
-        setExpandRatio(searchProjectBar,1);
-        setSpacing(false);
-
+        Button addProjectButton = new Button("Add Project");
         addProjectButton.addClickListener(event -> {
             addProjectWindow = new AddProjectWindow(projectsView.getProjectsDisplay());
         });
 
+        addComponent(addProjectButton);
     }
 
-    /**
-     * Returns the TextChangeListener that gets triggered
-     *
-     * @return
-     */
-    private FieldEvents.TextChangeListener getProjectsListener() {
-        return new FieldEvents.TextChangeListener() {
 
-            @Override
-            public void textChange(FieldEvents.TextChangeEvent event) {
-                String newValue = (String) event.getText();
+    public void setRowStyleGenerator(Grid.RowStyleGenerator rowStyleGenerator){
 
-                /**
-                 * This removes the previous filter that was used to filter the container
-                 */
-                projectsDisplay.getContainer().removeContainerFilters("name");
-
-                if (null != newValue && !newValue.isEmpty()) {
-                    //Set new filter for the "name" column
-                    projectsDisplay.getContainer().addContainerFilter(new SimpleStringFilter(
-                            "name", newValue, true, false));
-                }
-                projectsDisplay.getGrid().recalculateColumnWidths();
-            }
-        };
+       // rowStyleGenerator.getStyle()
 
     }
 

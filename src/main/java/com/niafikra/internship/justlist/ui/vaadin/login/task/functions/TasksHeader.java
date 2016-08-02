@@ -1,6 +1,7 @@
 package com.niafikra.internship.justlist.ui.vaadin.login.task.functions;
 
 import com.niafikra.internship.justlist.data.Project;
+import com.niafikra.internship.justlist.data.Task;
 import com.niafikra.internship.justlist.service.TasksService;
 import com.niafikra.internship.justlist.ui.vaadin.login.TasksView;
 import com.vaadin.data.util.filter.SimpleStringFilter;
@@ -12,13 +13,11 @@ import com.vaadin.ui.*;
  */
 public class TasksHeader extends HorizontalLayout{
 
-    private TextField searchTaskBar;
-    private Button addTaskButton;
     private TasksService tasksService;
     private Project currentProject;
     private TasksView tasksView;
-    private AddTaskWindow addTaskWindow;
     private TasksDisplay tasksDisplay;
+    private AddTaskWindow addTaskWindow;
 
 
     public TasksHeader( TasksView tasksView){
@@ -26,72 +25,60 @@ public class TasksHeader extends HorizontalLayout{
         this.tasksView = tasksView;
         tasksDisplay = tasksView.getTasksDisplay();
 
-        build();
+        //build();
+        //setMargin(true);
+        createTasksActions();
 
     }
 
-    private void build() {
+
+    private void createTasksActions() {
 
         setSizeFull();
+        //setSpacing(false);
+        HorizontalLayout actions = new HorizontalLayout();
+        addComponent(actions);
+        setComponentAlignment(actions,Alignment.BOTTOM_LEFT);
 
-        /**
-         *  An input field to use for filter
-         */
-        searchTaskBar = new TextField();
+        Button deleteButton = new Button("Delete");
+        deleteButton.addClickListener(event -> {
+            for (Object selectedTaskID : tasksDisplay.getGrid().getSelectedRows()){
+                tasksService.delete((Task) selectedTaskID);
+                tasksDisplay.getGrid().deselect(selectedTaskID);
 
-        searchTaskBar.setInputPrompt("Search task by name...");
+            }
 
-        /**
-         * On Change of text, filter the data of the grid
-         */
-        searchTaskBar.addTextChangeListener(getTasksListener());
-        searchTaskBar.setImmediate(true);
 
-        searchTaskBar.setWidth("100%");
-        addComponent(searchTaskBar);
-        setComponentAlignment(searchTaskBar, Alignment.TOP_CENTER);
-        addTaskButton = new Button("Add Task");
+            tasksDisplay.fetchTasks();
+        });
+
+        actions.addComponent(deleteButton);
+        //setComponentAlignment(actions,Alignment.BOTTOM_LEFT);
+
+        Button completeButton = new Button("Complete");
+        completeButton.addClickListener(event -> {
+            for (Object selectedTaskID : tasksDisplay.getGrid().getSelectedRows()) {
+                tasksService.complete((Task) selectedTaskID);
+                tasksDisplay.getGrid().deselect(selectedTaskID);
+            }
+            tasksDisplay.fetchTasks();
+        });
+        actions.addComponent(completeButton);
+        //setComponentAlignment(completeButton, Alignment.BOTTOM_LEFT);
+
+        Button addTaskButton = new Button("Add Task");
         addTaskButton.setWidth("100px");
-        setExpandRatio(searchTaskBar,1);
-
-        //addComponent(userService);
         addTaskButton.addClickListener(e ->{
 
             addTaskWindow = new AddTaskWindow(tasksView.getTasksDisplay());
 
         });
-        addComponent(addTaskButton);
-        setComponentAlignment(addTaskButton, Alignment.TOP_CENTER);
+
+        actions.addComponent(addTaskButton);
+        //setComponentAlignment(addTaskButton,Alignment.BOTTOM_LEFT);
+
 
     }
 
-    /**
-     * Returns the TextChangeListener that gets triggered
-     *
-     * @return
-     */
-
-    private FieldEvents.TextChangeListener getTasksListener() {
-        return new FieldEvents.TextChangeListener() {
-
-            @Override
-            public void textChange(FieldEvents.TextChangeEvent event) {
-                String newValue = (String) event.getText();
-
-                /**
-                 * This removes the previous filter that was used to filter the container
-                 */
-                tasksDisplay.getContainer().removeContainerFilters("name");
-
-                if (null != newValue && !newValue.isEmpty()) {
-                    //Set new filter for the "name" column
-                    tasksDisplay.getContainer().addContainerFilter(new SimpleStringFilter(
-                            "name", newValue, true, false));
-                }
-                tasksDisplay.getGrid().recalculateColumnWidths();
-            }
-        };
-
-    }
 
 }

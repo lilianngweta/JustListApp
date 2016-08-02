@@ -16,6 +16,23 @@
 		background-color: rosybrown;
 	}
 
+	.marginSetter{
+
+		//padding-left: 200px;
+		padding-right: 400px;
+		//padding-top: 50px;
+		//padding-bottom: 25px;
+	}
+
+
+
 
 	/* Add your theme selectors here */
+
+	.vaadin-grid-row-selected{
+
+		   background-color: green;
+	       background-color: var(--vaadin-grid-row-selected-background-color, green);
+	}
+
 }

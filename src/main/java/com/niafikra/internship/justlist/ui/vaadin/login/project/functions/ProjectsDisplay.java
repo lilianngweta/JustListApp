@@ -5,10 +5,9 @@ import com.niafikra.internship.justlist.service.ProjectService;
 import com.niafikra.internship.justlist.service.UserService;
 import com.niafikra.internship.justlist.ui.vaadin.login.ProjectsView;
 import com.vaadin.data.util.BeanItemContainer;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Grid;
-import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.VerticalLayout;
+import com.vaadin.data.util.filter.SimpleStringFilter;
+import com.vaadin.event.FieldEvents;
+import com.vaadin.ui.*;
 
 import java.util.Collection;
 
@@ -23,50 +22,54 @@ public class ProjectsDisplay extends VerticalLayout {
     private Project currentSelectedProject;
     private ProjectsView projectsView;
     private Grid grid;
+    private TextField searchProjectBar;
+    private ProjectsDisplay projectsDisplay;
 
     public ProjectsDisplay(ProjectsView projectsView) {
         this.projectsView = projectsView;
-
+        projectsDisplay = projectsView.getProjectsDisplay();
         projectService = ProjectService.get();
         container = new BeanItemContainer<Project>(Project.class);
 
         setSizeFull();
         setSpacing(true);
-        /**
-         * Create a grid
-         */
-        createProjectsActions();
+
+        build();
         createProjectGrid();
     }
 
-    private void createProjectsActions() {
-        HorizontalLayout actions = new HorizontalLayout();
-        addComponent(actions);
-        Button deleteButton = new Button("Delete");
-        deleteButton.addClickListener(event -> {
-            Collection selectedProjectIDs= grid.getSelectedRows();
-            for (Object selectedProjectID : selectedProjectIDs) {
-                projectService.delete((Project) selectedProjectID);
-                grid.deselect(selectedProjectID);
-            }
+    public void build() {
 
-            fetchProjects();
+        HorizontalLayout searchProject = new HorizontalLayout();
+        addComponent(searchProject);
+        searchProject.setWidth("100%");
+        /**
+         *  An input field to use for filter
+         */
+        searchProjectBar = new TextField();
+        searchProjectBar.setInputPrompt("Search project...");
+        setSizeFull();
+        /**
+         * On Change of text, filter the data of the grid
+         */
+        searchProjectBar.addTextChangeListener(getProjectsListener());
 
-            if(selectedProjectIDs.contains(currentSelectedProject))
-                setCurrentSelectedProject(null);
-        });
-        actions.addComponent(deleteButton);
+        searchProjectBar.setImmediate(true);
+        searchProjectBar.setWidth("100%");
+        //setExpandRatio(searchProjectBar,1);
+        searchProject.addComponent(searchProjectBar);
+        setSpacing(false);
 
-        Button completeButton = new Button("Archive");
-        completeButton.addClickListener(event -> {
-            for (Object selectedProjectID : grid.getSelectedRows()) {
-                projectService.archive((Project) selectedProjectID);
-                grid.deselect(selectedProjectID);
-            }
-            fetchProjects();
-        });
-        actions.addComponent(completeButton);
     }
+
+
+    /**
+     * Returns the TextChangeListener that gets triggered
+     *
+     * @return
+     */
+
+
 
     private void createProjectGrid() {
         grid = new Grid(container);
@@ -84,11 +87,37 @@ public class ProjectsDisplay extends VerticalLayout {
         });
     }
 
-    public void fetchProjects() {
-        container.removeAllItems();
-        container.addAll(projectService.getProjects(UserService.get().getCurrentSessionUser()));
+
+    private FieldEvents.TextChangeListener getProjectsListener() {
+        return new FieldEvents.TextChangeListener() {
+
+            @Override
+            public void textChange(FieldEvents.TextChangeEvent event) {
+                String newValue = (String) event.getText();
+
+                /**
+                 * This removes the previous filter that was used to filter the container
+                 */
+                container.removeContainerFilters("name");
+
+                if (null != newValue && !newValue.isEmpty()) {
+                    //Set new filter for the "name" column
+                    container.addContainerFilter(new SimpleStringFilter(
+                            "name", newValue, true, false));
+                }
+                grid.recalculateColumnWidths();
+            }
+        };
 
     }
+
+
+    public void fetchProjects() {
+        container.removeAllItems();
+        projectsView.getProjectsDisplay().getContainer().addAll(projectService.getProjects(UserService.get().getCurrentSessionUser()));
+
+    }
+
 
     public void setCurrentSelectedProject(Project currentSelectedProject) {
         this.currentSelectedProject = currentSelectedProject;

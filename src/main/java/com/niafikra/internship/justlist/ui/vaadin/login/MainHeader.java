@@ -1,8 +1,10 @@
 package com.niafikra.internship.justlist.ui.vaadin.login;
 
 
+import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.HorizontalLayout;
+import com.vaadin.ui.Layout;
 
 /**
  * Created by lilianngweta on 7/8/16.
@@ -21,6 +23,7 @@ public class MainHeader extends HorizontalLayout {
         addStyleName("backColorWhite");
         addComponent(logo);
         addComponent(logOutLayout);
+        addStyleName("marginSetter");
 
         setComponentAlignment(logOutLayout, Alignment.MIDDLE_RIGHT);
     }
