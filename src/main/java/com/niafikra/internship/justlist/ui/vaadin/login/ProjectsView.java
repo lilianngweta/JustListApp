@@ -2,6 +2,7 @@ package com.niafikra.internship.justlist.ui.vaadin.login;
 
 import com.niafikra.internship.justlist.ui.vaadin.login.project.functions.ProjectsDisplay;
 import com.niafikra.internship.justlist.ui.vaadin.login.project.functions.ProjectsHeader;
+import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.Alignment;
 //import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
@@ -26,9 +27,11 @@ public class ProjectsView extends VerticalLayout {
 
     private void build() {
 
-        setMargin(true);
         setSizeFull();
-        addStyleName("backColorAqua");
+        setMargin(new MarginInfo(false,true,false,false));
+        //addStyleName("backColorAqua");
+        //setMargin(false);
+
 
         addComponent(projectsHeader);
         setComponentAlignment(projectsHeader, Alignment.TOP_CENTER);
@@ -36,6 +39,7 @@ public class ProjectsView extends VerticalLayout {
         setExpandRatio(projectsDisplay, 10);
         setExpandRatio(projectsHeader, 1);
 
+        setSpacing(true);
 
     }
 

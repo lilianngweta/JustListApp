@@ -24,8 +24,8 @@ public class MainView extends VerticalLayout implements View {
         addComponent(tasksContent);
 
         setSizeFull();
-
         setExpandRatio(tasksContent,1);
+        //setSpacing(true);
 
     }
 

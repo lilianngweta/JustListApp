@@ -47,7 +47,7 @@ public class TasksDisplay extends VerticalLayout {
             @Override
             public String getStyle(Grid.RowReference row) {
                 Task task = (Task) row.getItemId();
-                return task.isCompleted() ? "task-completed" : "task-not-completed";
+                return task.isCompleted() ? "completed" : "task-not-completed";
             }
         });
 
@@ -60,6 +60,7 @@ public class TasksDisplay extends VerticalLayout {
         grid.removeColumn("id");
         grid.removeColumn("user");
         grid.removeColumn("project");
+        grid.removeColumn("completed");
         addComponent(grid);
         setExpandRatio(grid, 1);
         grid.setWidth("100%");

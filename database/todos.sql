@@ -26,10 +26,11 @@ CREATE TABLE `Project` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   `user_id` int(10) NOT NULL,
+  `archived` char(5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_Project_User_idx` (`user_id`),
   CONSTRAINT `FK_Project_User` FOREIGN KEY (`user_id`) REFERENCES `User` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +39,7 @@ CREATE TABLE `Project` (
 
 LOCK TABLES `Project` WRITE;
 /*!40000 ALTER TABLE `Project` DISABLE KEYS */;
-INSERT INTO `Project` VALUES (17,'p67',1),(18,'p78',1);
+INSERT INTO `Project` VALUES (17,'p67',1,NULL),(18,'p78',1,NULL),(19,'VDSV',1,'0');
 /*!40000 ALTER TABLE `Project` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,4 +106,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-07-27 20:16:53
+-- Dump completed on 2016-08-05 18:42:36

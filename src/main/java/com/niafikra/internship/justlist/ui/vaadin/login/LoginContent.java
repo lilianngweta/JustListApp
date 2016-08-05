@@ -29,6 +29,7 @@ public class LoginContent extends HorizontalLayout{
         addComponent(authenticationPanel);
 
         setExpandRatio(welcomeView,1);
+        setStyleName("homebackgroundimage");
     }
 
     public AuthenticationPanel getAuthenticationPanel() {

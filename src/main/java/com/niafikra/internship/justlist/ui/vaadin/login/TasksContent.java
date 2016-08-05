@@ -26,6 +26,7 @@ public class TasksContent extends HorizontalLayout {
         //projectsView.addStyleName("backColorAqua");
         setExpandRatio(tasksView,3);
         setExpandRatio(projectsView,1);
+        setStyleName("backgroundimage");
 
     }
 

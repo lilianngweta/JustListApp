@@ -12811,6 +12811,28 @@ div.v-layout.v-horizontal.v-widget {
 	font-weight: bold;
 }
 
-.task-completed {
-	color: grey;
+.v-grid-row.completed {
+	color: lightgray;
+	background-color: green;
 }
+
+.backgroundimage {
+	background: url("clouds.jpg") !important;
+}
+
+.bold-font {
+	color: black;
+	font-weight: bold;
+}
+
+.homebackgroundimage {
+	background: url("ocean.jpg") !important;
+}
+
+
+.white-font {
+	color: white;
+	font-weight: bold;
+}
+
+

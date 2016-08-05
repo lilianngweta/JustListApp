@@ -22,6 +22,7 @@ public class LogInForm extends FormLayout implements ClickListener {
     private TextField email;
     private PasswordField password;
     private Button login;
+    private Label label;
 
 
     public LogInForm() {
@@ -33,7 +34,8 @@ public class LogInForm extends FormLayout implements ClickListener {
     public void build() {
         setSizeFull();
         setMargin(true);
-
+        addComponent(label = new Label("Enter your Login Information"));
+        label.addStyleName("bold-font");
         addComponent(email = new TextField("Email"));
         email.setWidth("250px");
         setComponentAlignment(email, Alignment.BOTTOM_CENTER);

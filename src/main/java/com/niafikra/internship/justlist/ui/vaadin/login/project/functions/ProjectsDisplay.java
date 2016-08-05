@@ -1,12 +1,14 @@
 package com.niafikra.internship.justlist.ui.vaadin.login.project.functions;
 
 import com.niafikra.internship.justlist.data.Project;
+import com.niafikra.internship.justlist.data.Task;
 import com.niafikra.internship.justlist.service.ProjectService;
 import com.niafikra.internship.justlist.service.UserService;
 import com.niafikra.internship.justlist.ui.vaadin.login.ProjectsView;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.data.util.filter.SimpleStringFilter;
 import com.vaadin.event.FieldEvents;
+import com.vaadin.shared.ui.MarginInfo;
 import com.vaadin.ui.*;
 
 import java.util.Collection;
@@ -32,7 +34,7 @@ public class ProjectsDisplay extends VerticalLayout {
         container = new BeanItemContainer<Project>(Project.class);
 
         setSizeFull();
-        setSpacing(true);
+        //setSpacing(true);
 
         build();
         createProjectGrid();
@@ -74,10 +76,20 @@ public class ProjectsDisplay extends VerticalLayout {
     private void createProjectGrid() {
         grid = new Grid(container);
         grid.setSelectionMode(Grid.SelectionMode.MULTI);
+        grid.setRowStyleGenerator(new Grid.RowStyleGenerator() {
+            @Override
+            public String getStyle(Grid.RowReference row) {
+                Project project = (Project) row.getItemId();
+                return project.isArchived() ? "completed" : "task-not-completed";
+            }
+        });
+
+
         grid.setWidth("100%");
         grid.setSizeFull();
         grid.removeColumn("id");
         grid.removeColumn("user");
+        grid.removeColumn("archived");
         addComponent(grid);
         setExpandRatio(grid, 1);
 

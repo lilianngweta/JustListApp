@@ -25,7 +25,6 @@ public class MainHeader extends HorizontalLayout {
         addComponent(logOutLayout);
         addStyleName("marginSetter");
         setMargin(new MarginInfo(false,true,false,false));
-
         setComponentAlignment(logOutLayout, Alignment.MIDDLE_RIGHT);
     }
 

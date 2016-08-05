@@ -29,7 +29,7 @@ public class TasksView extends VerticalLayout {
         setSizeFull();
         setMargin(false);
         setSpacing(true);
-        addStyleName("backColorPurple");
+       // addStyleName("backColorPurple");
         addComponent(tasksHeader);
         setComponentAlignment(tasksHeader, Alignment.TOP_CENTER);
         addComponent(tasksDisplay);

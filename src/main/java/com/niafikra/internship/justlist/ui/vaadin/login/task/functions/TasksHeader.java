@@ -18,6 +18,7 @@ public class TasksHeader extends HorizontalLayout{
     private TasksView tasksView;
     private TasksDisplay tasksDisplay;
     private AddTaskWindow addTaskWindow;
+    private Task task;
 
 
     public TasksHeader( TasksView tasksView){
@@ -35,9 +36,11 @@ public class TasksHeader extends HorizontalLayout{
 
         setSizeFull();
         //setSpacing(false);
-        HorizontalLayout actions = new HorizontalLayout();
-        addComponent(actions);
-        setComponentAlignment(actions,Alignment.BOTTOM_LEFT);
+        HorizontalLayout taskActions = new HorizontalLayout();
+        addComponent(taskActions);
+        //taskActions.setSizeFull();
+        //taskActions.setSpacing(false);
+        setComponentAlignment(taskActions,Alignment.TOP_LEFT);
 
         Button deleteButton = new Button("Delete");
         deleteButton.addClickListener(event -> {
@@ -51,18 +54,26 @@ public class TasksHeader extends HorizontalLayout{
             tasksDisplay.fetchTasks();
         });
 
-        actions.addComponent(deleteButton);
-        //setComponentAlignment(actions,Alignment.BOTTOM_LEFT);
+        taskActions.addComponent(deleteButton);
+        //setComponentAlignment(taskActions,Alignment.BOTTOM_LEFT);
 
         Button completeButton = new Button("Complete");
         completeButton.addClickListener(event -> {
+
             for (Object selectedTaskID : tasksDisplay.getGrid().getSelectedRows()) {
-                tasksService.complete((Task) selectedTaskID);
-                tasksDisplay.getGrid().deselect(selectedTaskID);
+//                task = (Task) selectedTaskID;
+//               if (task.isCompleted()) {
+                   tasksService.complete((Task) selectedTaskID);
+                   tasksDisplay.getGrid().deselect(selectedTaskID);
+//               }
+//                else if(!task.isCompleted()) {
+//                   tasksService.notCompleted((Task) selectedTaskID);
+//                   tasksDisplay.getGrid().deselect(selectedTaskID);
+//               }
             }
             tasksDisplay.fetchTasks();
         });
-        actions.addComponent(completeButton);
+        taskActions.addComponent(completeButton);
         //setComponentAlignment(completeButton, Alignment.BOTTOM_LEFT);
 
         Button addTaskButton = new Button("Add Task");
@@ -73,7 +84,7 @@ public class TasksHeader extends HorizontalLayout{
 
         });
 
-        actions.addComponent(addTaskButton);
+        taskActions.addComponent(addTaskButton);
         //setComponentAlignment(addTaskButton,Alignment.BOTTOM_LEFT);
 
 
